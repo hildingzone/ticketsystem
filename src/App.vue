@@ -9,34 +9,7 @@
 </template>
 
 <style lang="scss">
+@import '/scss/main.scss';
 
-:root {
-    background-color: #231f42;
 
-}
-
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  background-color: #231f42;
-}
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: white;
-    text-decoration: none;
-    text-transform: uppercase;
-    &.router-link-exact-active {
-      color: rgb(108, 238, 255);
-    }
-    
-  }
-  a:hover {
-    color: #F56B9A;
-  }
-}
 </style>
