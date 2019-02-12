@@ -3,3 +3,6 @@
     <h1>Staff</h1>
   </div>
 </template>
+<style scoped>
+
+</style>
