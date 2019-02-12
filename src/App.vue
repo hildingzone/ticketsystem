@@ -10,6 +10,10 @@
 
 <style lang="scss">
 
+:root {
+    background-color: #231f42;
+
+}
 
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
@@ -25,9 +29,14 @@
     font-weight: bold;
     color: white;
     text-decoration: none;
+    text-transform: uppercase;
     &.router-link-exact-active {
       color: rgb(108, 238, 255);
     }
+    
+  }
+  a:hover {
+    color: #F56B9A;
   }
 }
 </style>
