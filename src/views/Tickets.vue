@@ -11,6 +11,11 @@ export default {
   name: 'tickets',
   components: {
     ticket
+  },
+  computed: {
+    tickets () {
+      return this.$store.state.ticket;
+    }
   }
 }
 </script>
