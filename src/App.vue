@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <main id="app">
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/events">Events</router-link> |
@@ -9,7 +9,7 @@
       <router-link to="/admin">Admin</router-link>
     </div>
     <router-view/>
-  </div>
+  </main>
 </template>
 
 <style lang="scss">

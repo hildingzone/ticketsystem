@@ -1,5 +1,5 @@
 <template>
-  <div class="buy">
+  <main class="buy">
     <section>
        <h3>You're about to score some tickets to </h3>
     </section>   
@@ -14,7 +14,7 @@
     <section>
       <a href="#" class="btn" @click="sendOrder()">Take my Money!</a>
     </section>
-  </div>
+  </main>
 </template>
 <style lang="scss">
 @import '../scss/components';

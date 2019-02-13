@@ -1,5 +1,5 @@
 <template>
-  <div class="tickets">
+  <main class="tickets">
     <section class="what"></section>
     <section class="where"></section>
     <section class="when"></section>
@@ -7,7 +7,7 @@
     <section class="to"></section>
     <section class="info"></section>
     <section class="code"></section>
-  </div>
+  </main>
 </template>
 <script>
 export default {

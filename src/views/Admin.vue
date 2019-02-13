@@ -21,14 +21,17 @@ export default {
 </script>
 <style lang="scss">
 .admin {
-  
+  position: relative;
+    img {
+    position:absolute;
+    top:0;
+    left:0;
+    } 
 }
 .active-events {
   background: rgba(0, 0, 0, 0.3);
 }
-img {
-  
-}
+
 ul {
   color: #F56B9A;
   list-style-type: none; 

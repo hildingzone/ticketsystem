@@ -1,7 +1,7 @@
 <template>
-  <div class="Staff">
+  <main class="Staff">
     <h1>Staff</h1>
-  </div>
+  </main>
 </template>
 <style scoped>
 

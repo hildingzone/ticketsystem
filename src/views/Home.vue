@@ -1,8 +1,8 @@
 <template>
-  <div class="home">
+  <main class="home">
     <img alt="Vue logo" src="../assets/logo.png"> 
     <FirstPage msg="Where it's @"/>
-  </div>
+  </main>
 </template>
 
 
