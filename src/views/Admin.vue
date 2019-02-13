@@ -11,27 +11,32 @@
         <li>Antal sålda biljetter</li>
       </ul>
     </section>
-    <section></section>
+    <section>
+      <h3>Add Event</h3>
+    </section>
   </main>
 </template>
+
+<!-- -->
 <script>
 export default {
-  
+  name: 'admin'
 }
 </script>
+
+<!-- -->
 <style lang="scss">
 .admin {
   position: relative;
-    img {
-    position:absolute;
-    top:0;
-    left:0;
-    } 
+  img {
+    position: absolute;
+    top: 32px;
+    left: 32px;
+  } 
 }
 .active-events {
   background: rgba(0, 0, 0, 0.3);
 }
-
 ul {
   color: #F56B9A;
   list-style-type: none; 

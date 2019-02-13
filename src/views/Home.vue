@@ -5,11 +5,8 @@
   </main>
 </template>
 
-
-
-
+<!-- -->
 <script>
-// @ is an alias to /src
 import FirstPage from '@/components/FirstPage.vue'
 
 export default {
@@ -19,3 +16,8 @@ export default {
   }
 }
 </script>
+
+<!-- -->
+<style lang="scss">
+
+</style>

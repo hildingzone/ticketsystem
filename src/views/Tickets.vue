@@ -1,19 +1,21 @@
 <template>
   <main class="tickets">
-    <section class="what"></section>
-    <section class="where"></section>
-    <section class="when"></section>
-    <section class="from"></section>
-    <section class="to"></section>
-    <section class="info"></section>
-    <section class="code"></section>
+    <ticket v-for="(ticket, index) in tickets" :key="index" :ticket="ticket" />
   </main>
 </template>
+
+<!-- -->
 <script>
+import ticket from '@/components/Ticket.vue'
 export default {
-  
+  name: 'tickets',
+  components: {
+    ticket
+  }
 }
 </script>
+
+<!-- -->
 <style lang="sass">
 
 </style>

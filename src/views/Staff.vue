@@ -3,6 +3,15 @@
     <h1>Staff</h1>
   </main>
 </template>
-<style scoped>
+
+<!-- -->
+<script>
+export default {
+  name: 'staff'
+}
+</script>
+
+<!-- -->
+<style>
 
 </style>
