@@ -11,9 +11,9 @@
         </p>
       <p>@ {{ticket.where.location}} </p>
     </section>
-    <sectino>
+    <section>
       <p>{{ticket.price}}</p>
-    </sectino>
+    </section>
     <section>
       <a href="#" class="btn" @click="sendOrder()">Take my Money!</a>
     </section>
@@ -23,7 +23,7 @@
 <!-- -->
 <script>
 export default {
-  name: 'buy',
+  name: 'buyTicket',
   props: ['ticket']
 }
 </script>

@@ -1,6 +1,6 @@
 <template>
   <main class="buy">
-    <buyTicket v-for="(buyTicket, index) in buyTickets" :key="index" :ticket="ticket" />
+    <buyTicket v-for="(ticket, index) in buyTickets" :key="index" :ticket="ticket" />
   </main>
 </template>
 
