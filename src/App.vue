@@ -1,42 +1,19 @@
 <template>
-  <div id="app">
+  <main id="app">
     <div id="nav">
       <router-link to="/">Home</router-link> |
-      <router-link to="/events">Events</router-link>
+      <router-link to="/events">Events</router-link> |
+      <router-link to="/buy">Buy</router-link> |
+      <router-link to="/tickets">Tickets</router-link> |
+      <router-link to="/staff">Staff</router-link> |
+      <router-link to="/admin">Admin</router-link>
     </div>
     <router-view/>
-  </div>
+  </main>
 </template>
 
 <style lang="scss">
+@import '/scss/main.scss';
 
-:root {
-    background-color: #231f42;
 
-}
-
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  background-color: #231f42;
-}
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: white;
-    text-decoration: none;
-    text-transform: uppercase;
-    &.router-link-exact-active {
-      color: rgb(108, 238, 255);
-    }
-    
-  }
-  a:hover {
-    color: #F56B9A;
-  }
-}
 </style>

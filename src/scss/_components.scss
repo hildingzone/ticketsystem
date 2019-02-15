@@ -1,0 +1,36 @@
+%center {
+    display: flex;
+    justify-content: center;
+    align-items: center ;
+  }
+a {
+    &.btn {
+      width: 100%;
+      background: #37AEAB;
+      @extend %center;
+      height: 3rem;
+      border-radius: 3px;
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      text-transform: uppercase;
+      &:hover {
+        background:rgb(56, 117, 92);
+      }
+      &:active {
+        background: #222;              
+      }
+    }
+}
+h3 {
+  font-style: italic;
+  font-weight: normal;
+  line-height: normal;
+  font-size: 19px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+}
+h1 {
+  color: #F56B9A;
+}

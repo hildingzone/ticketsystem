@@ -1,17 +1,17 @@
 <template>
-  <main class="events">
-    <h1>Events</h1>
+  <main class="Staff">
+    <h1>Staff</h1>
   </main>
 </template>
 
 <!-- -->
 <script>
 export default {
-  name: 'events'
+  name: 'staff'
 }
 </script>
 
 <!-- -->
-<style lang="scss">
+<style>
 
 </style>
