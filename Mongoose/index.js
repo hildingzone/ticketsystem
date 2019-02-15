@@ -1,8 +1,11 @@
 // Dependencies
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
+
 let app = express();
 app.use(express.json());
+app.use(cors());
 
 // Connect to our DB 
 mongoose.connect(`mongodb+srv://PinkSurfer:${process.env.PASSWORD}@pinksurfers-39rah.mongodb.net/test?retryWrites=true`, { useNewUrlParser: true })

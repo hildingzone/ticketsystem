@@ -1,32 +1,31 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import axios from 'axios'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    ticket: [
-      {
-          name: 'Lasse-Stefanz',
-          code: 'AE32F',
-          price: 1050,
-          where: {
-              location: 'Globen',
-              adress: 'Den stora vita bollen'
-          },
-          when: {
-              date: '22 mar',
-              start: '18.00',
-              to: '22:00'
-          },
-          info: 'Sittplats'
-      }
-    ],
-  },
+      tickets: [],
+      event: [],
+      events: {}
+    },
   mutations: {
-
+    setTicket(state, tickets) {
+      state.tickets = tickets
+    },
+    selectedEvent(state, event) {
+      state.event = event
+    }
   },
   actions: {
-
+    async buy(ctx, buyTicket) {
+      let tickets = await axios.get('http://localhost:3000/tickets', buyTicket);
+      ctx.commit('setTicket', tickets.data);
+    },
+    async getEvent(ctx) {
+      let events = await axios.get('http://localhost:3000/tickets', events);
+      console.log(events);
+    }
   }
 })

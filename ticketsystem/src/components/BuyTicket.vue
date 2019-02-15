@@ -24,7 +24,12 @@
 <script>
 export default {
   name: 'buyTicket',
-  props: ['ticket']
+  props: ['ticket'],
+  methods: {
+    sendOrder () {
+      this.$router.push('/tickets')
+    }
+  }
 }
 </script>
 

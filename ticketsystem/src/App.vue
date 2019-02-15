@@ -11,6 +11,15 @@
     <router-view/>
   </main>
 </template>
+<script>
+export default {
+  name: 'app',
+  beforeMount() {
+    this.$store.dispatch('getEvent');
+  }
+}
+</script>
+
 
 <style lang="scss">
 @import '/scss/main.scss';
