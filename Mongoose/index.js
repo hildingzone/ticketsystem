@@ -5,7 +5,7 @@ let app = express();
 app.use(express.json());
 
 // Connect to our DB 
-mongoose.connect(`mongodb+srv://MrPinkSurfer:${process.env.PASSWORD}@pinksurfers-39rah.mongodb.net/test?retryWrites=true`, { useNewUrlParser: true })
+mongoose.connect(`mongodb+srv://PinkSurfer:${process.env.PASSWORD}@pinksurfers-39rah.mongodb.net/test?retryWrites=true`, { useNewUrlParser: true })
 .then(() => {
     console.info('Connected.')
 })
