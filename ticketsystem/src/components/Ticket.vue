@@ -1,5 +1,5 @@
 <template>
-  <article class="tickets">
+  <article class="ticket">
     <section class="what">
         <p class="what">What</p>
         <h1>{{ticket.name}}</h1>

@@ -4,16 +4,16 @@
        <h3>You're about to score some tickets to </h3>
     </section>   
     <section>
-      <h1>{{ticket.name}}</h1>
-      <p>{{ticket.when.date}} 
-        {{ticket.when.start}} 
-        {{ticket.when.to}}
+      <h1>{{event.name}}</h1>
+      <p>{{event.when.date}} 
+        {{event.when.start}} -
+        {{event.when.to}}
         </p>
-      <p>@ {{ticket.where.location}} </p>
+      <p>@ {{event.where.location}} </p>
     </section>
-    <sectino>
-      <p>{{ticket.price}}</p>
-    </sectino>
+    <section>
+      <p>{{event.price}}</p>
+    </section>
     <section>
       <a href="#" class="btn" @click="sendOrder()">Take my Money!</a>
     </section>
@@ -23,8 +23,13 @@
 <!-- -->
 <script>
 export default {
-  name: 'buy',
-  props: ['ticket']
+  name: 'buyTicket',
+  props: ['ticket'],
+    computed: {
+      event () {
+        return this.$store.state.event;
+    }
+  }
 }
 </script>
 
