@@ -4,15 +4,15 @@
        <h3>You're about to score some tickets to </h3>
     </section>   
     <section>
-      <h1>{{ticket.name}}</h1>
-      <p>{{ticket.when.date}} 
-        {{ticket.when.start}} 
-        {{ticket.when.to}}
+      <h1>{{event.name}}</h1>
+      <p>{{event.when.date}} 
+        {{event.when.start}} -
+        {{event.when.to}}
         </p>
-      <p>@ {{ticket.where.location}} </p>
+      <p>@ {{event.where.location}} </p>
     </section>
     <section>
-      <p>{{ticket.price}}</p>
+      <p>{{event.price}}</p>
     </section>
     <section>
       <a href="#" class="btn" @click="sendOrder()">Take my Money!</a>
@@ -25,9 +25,9 @@
 export default {
   name: 'buyTicket',
   props: ['ticket'],
-  methods: {
-    sendOrder () {
-      this.$router.push('/tickets')
+    computed: {
+      event () {
+        return this.$store.state.event;
     }
   }
 }

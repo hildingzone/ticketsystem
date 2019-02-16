@@ -7,7 +7,12 @@
 <!-- -->
 <script>
 export default {
-  name: 'events'
+  name: 'events',
+  computed: {
+    events () {
+      return this.$state.store.events;
+    }
+  }
 }
 </script>
 

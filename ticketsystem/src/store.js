@@ -7,8 +7,8 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
       tickets: [],
-      event: [],
-      events: {}
+      events: [],
+      event: {}
     },
   mutations: {
     setTicket(state, tickets) {
@@ -16,16 +16,20 @@ export default new Vuex.Store({
     },
     selectedEvent(state, event) {
       state.event = event
+    },
+    setEvents (state, events) {
+      state.events = events
     }
   },
   actions: {
-    async buy(ctx, buyTicket) {
+/*    async buy(ctx, buyTicket) {
       let tickets = await axios.get('http://localhost:3000/tickets', buyTicket);
       ctx.commit('setTicket', tickets.data);
-    },
+    }, */
     async getEvent(ctx) {
       let events = await axios.get('http://localhost:3000/tickets', events);
-      console.log(events);
+      ctx.commit('setEvents', events.data);
     }
+    
   }
 })
