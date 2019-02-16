@@ -1,17 +1,20 @@
 <template>
     <article class="event">
         <aside>{{event.date}}</aside>
-
-        <section>
+        <section class="info">
             <h1>{{event.name}}</h1>
-            <p>{{event.where.location}}</p>
-            <p>{{event.start}} - {{event.end}}</p>
+            <section class="location">{{event.where.location}}</section>
+            <section class="time">{{event.start}} - {{event.end}}</section>
+            <section class="price">{{event.price}} :-</section>
         </section>
     </article>
 </template>
 
 <script>
 export default {
+    name: 'event',
+    props: ['event'],
+
     
 }
 </script>

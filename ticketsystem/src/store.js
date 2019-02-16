@@ -27,9 +27,10 @@ export default new Vuex.Store({
       ctx.commit('setTicket', tickets.data);
     }, */
     async getEvent(ctx) {
-      let events = await axios.get('http://localhost:3000/tickets', events);
+      let events = await axios.get('http://localhost:3000/tickets');
+      console.log(events);
       ctx.commit('setEvents', events.data);
-    }
-    
+ 
+    } 
   }
 })

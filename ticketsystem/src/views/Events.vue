@@ -1,23 +1,24 @@
 <template>
   <main class="events">
-    <SearchBar hint="Search hint" :text="searchPhrase" @textChange="onTextChanged" @submit="onSubmit" />
     <h1>Events</h1>
-    <Event v-for="event in events" :key="event" />
+    <section class="">
+      <event v-for="event in events" :key="event.id" />
+    </section>
   </main>
 </template>
 
 <!-- -->
 <script>
-import Event from '@/components/Event.vue';
+import event from '@/components/Event.vue'
 
 export default {
   name: 'events',
   components: {
-    Event
+    event
   },
   computed: {
     events () {
-      return this.$state.store.events;
+      return this.$store.state.events;
     }
   }
 }

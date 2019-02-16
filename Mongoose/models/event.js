@@ -3,45 +3,36 @@ let Schema = mongoose.Schema;
 
 let eventSchema = new Schema({      
     code: {
-        type: [String, 'Code must be a String'],
-        required: [true, 'No code found.']
+        type: String,
     },
     name: {
-        type: [String, 'Name must be a String'],
-        required: [true, 'Enter a Name.']
+        type: String,
     },
     price: {
-        type: [Number, 'Price must be a Number'],
-        required: [true, 'Enter a Price.']
+        type: Number,
     },
     when: {
         date: {
-            type: [String, 'Date must be a String'],
-            required: [true, 'You gave no Date.']
+            type: String,
         },
         start: {
-            type: [String, 'Start must be a String'],
-            required: [true, 'You gave no Start.']
+            type: String,
         },
         end: {
-            type: [String, 'End must be a String'],
-            required: [true, 'You gave no End.']
+            type: String,
         },
-    }, /*
+    }, 
     where: {
         location: {
-            type: [String, 'Location must be a String'],
-            required: [true, 'You gave no Location.']
+            type: String,
         },
         adress: {
-            type: [String, 'Adress must be a String'],
-            required: [true, 'You gave no Adress.']
+            type: String,
         }
     },
     info: String,
-*/
-})
+});
 
-let Event = mongoose.model('event', eventSchema);
+let Events = mongoose.model('event', eventSchema);
 
-module.exports = Event;
+module.exports = Events;
