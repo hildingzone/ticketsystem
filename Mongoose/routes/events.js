@@ -2,9 +2,10 @@ let Event = require('../models/event');
 
 module.exports.get = async (req, res) => {
     try {
-        res.status(200).send(await Event.find({}));
+        let events = await Event.find({});
+        res.status(200).send(tickets);
     } catch (err) {
-        res.status(500).send(err.stack);
+        res.status(500).send(err);
     }
 };
 module.exports.post = async (req, res) => {

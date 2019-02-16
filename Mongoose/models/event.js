@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+let mongoose = require('mongoose');
 let Schema = mongoose.Schema;
 
 let eventSchema = new Schema({      
@@ -6,7 +6,7 @@ let eventSchema = new Schema({
         type: String,
     },
     name: {
-        type: String,
+        type: String,   
     },
     price: {
         type: Number,
@@ -33,6 +33,6 @@ let eventSchema = new Schema({
     info: String,
 });
 
-let Events = mongoose.model('event', eventSchema);
+let Event = mongoose.model('event', eventSchema);
 
-module.exports = Events;
+module.exports = Event;

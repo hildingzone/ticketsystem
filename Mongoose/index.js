@@ -18,9 +18,14 @@ mongoose.connect(`mongodb+srv://PinkSurfer:${process.env.PASSWORD}@pinksurfers-3
 
 // Routes
 let tickets = require('./routes/tickets');
+let events = require('./routes/events');
 let verify = require('./routes/verify');
 
 app.route('/tickets')
+.post(tickets.post)
+.get(tickets.get);
+
+app.route('/events')
 .post(tickets.post)
 .get(tickets.get);
 
