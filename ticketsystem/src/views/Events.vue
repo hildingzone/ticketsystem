@@ -2,7 +2,7 @@
   <main class="events">
     <h1>Events</h1>
     <section class="">
-      <event v-for="event in events" :key="event.id" />
+      <event v-for="event in events" :key="event.id" :event="event"/>
     </section>
   </main>
 </template>

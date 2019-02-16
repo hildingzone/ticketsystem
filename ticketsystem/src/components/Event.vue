@@ -4,7 +4,7 @@
         <section class="info">
             <h1>{{event.name}}</h1>
             <section class="location">{{event.where.location}}</section>
-            <section class="time">{{event.start}} - {{event.end}}</section>
+            <section class="time">{{event.when.start}} - {{event.when.end}}</section>
             <section class="price">{{event.price}} :-</section>
         </section>
     </article>
