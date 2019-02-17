@@ -3,7 +3,7 @@
         <aside>{{event.date}}</aside>
         <section class="info">
             <h2>{{event.name}}</h2>
-                        <section class="location">{{event.where.adress}}, {{event.where.location}}</section>
+                        <section class="location">{{event.where.location}}</section>
                                     <button class="buybutton">Buy tickets</button>
 
             <section class="date">{{event.when.date}} </section>
