@@ -1,13 +1,16 @@
 <template>
   <main class="Staff">
-    <h1>Staff</h1>
+    <section>
+          <h1>Staff</h1>
+    </section>
   </main>
 </template>
 
 <!-- -->
 <script>
 export default {
-  name: 'staff'
+  name: 'staff',
+  
 }
 </script>
 
