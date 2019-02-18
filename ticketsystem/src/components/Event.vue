@@ -1,6 +1,5 @@
 <template>
     <article class="event">
-        <aside>{{event.date}}</aside>
         <section class="info">
             <h2>{{event.name}}</h2>
             <section class="location">{{event.where.adress}}</section>

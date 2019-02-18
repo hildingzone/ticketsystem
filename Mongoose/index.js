@@ -9,12 +9,12 @@ app.use(cors());
 
 // Connect to our DB 
 mongoose.connect(`mongodb+srv://PinkSurfer:${process.env.PASSWORD}@pinksurfers-39rah.mongodb.net/test?retryWrites=true`, { useNewUrlParser: true })
-.then(() => {
-    console.info('Connected.')
-})
-.catch(err => {
-    console.error(err)
-});
+    .then(() => {
+        console.info('Connected.')
+    })
+    .catch(err => {
+        console.error(err)
+    });
 
 // Routes
 let tickets = require('./routes/tickets');
@@ -22,15 +22,15 @@ let events = require('./routes/events');
 let verify = require('./routes/verify');
 
 app.route('/tickets')
-.post(tickets.post)
-.get(tickets.get);
+    .post(tickets.post)
+    .get(tickets.get);
 
 app.route('/events')
-.post(tickets.post)
-.get(tickets.get);
+    .post(events.post)
+    .get(events.get);
 
 app.route('/verify/:code')
-.get(verify.get)
+    .get(verify.get)
 
 app.listen(3000, () => {
     console.info('Server is running: 3000.')
