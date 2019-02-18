@@ -19,7 +19,7 @@
     </section>
     <section class="to">
         <p class="to">To</p>
-        <h3>{{ticket.event.when.to}}</h3>
+        <h3>{{ticket.event.when.end}}</h3>
     </section>
     <section class="info">
         <p class="info">Info</p>
