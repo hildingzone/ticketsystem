@@ -1,30 +1,38 @@
 <template>
-  <main class="events">
-    <h1>Events</h1>
-    <section class="">
-      <event v-for="event in events" :key="event.id" :event="event"/>
-    </section>
-  </main>
+    <main id="events">
+        <header>
+            <h1>Events</h1>
+        </header>
+        <section class="content">
+        <event v-for="event in events" :key="event.id" :event="event" />
+        </section>
+        <pager :activeStep="activeStep"/>
+    </main>
 </template>
 
-<!-- -->
 <script>
-import event from '@/components/Event.vue'
-
+import event from '@/components/Event';
+import pager from '@/components/Pager';
 export default {
   name: 'events',
+  data(){
+    return {
+      activeStep: 2,
+      filter: null
+    }
+  },
   components: {
+    pager,
     event
   },
   computed: {
-    events () {
+    events(){
       return this.$store.state.events;
     }
   }
 }
 </script>
-
-<!-- -->
 <style lang="scss">
+@import '../scss/variables';
 
 </style>

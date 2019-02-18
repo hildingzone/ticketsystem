@@ -5,30 +5,41 @@ import axios from 'axios'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
-  state: {
-      tickets: [],
-      events: [],
-      event: {}
+    state: {
+        tickets: [],
+        events: [],
+        event: {}
     },
-  mutations: {
-    setTicket(state, tickets) {
-      state.tickets = tickets
+    mutations: {
+        setTickets(state, tickets) {
+            state.tickets = tickets;
+        },
+        selectEvent(state, event) {
+            state.event = event;
+        },
+        setEvents(state, events) {
+            state.events = events;
+        }
     },
-    selectedEvent(state, event) {
-      state.event = event
-    },
-    setEvents (state, events) {
-      state.events = events
+    actions: {
+        async buy(ctx, buyData) {
+            let tickets = await axios.post('http://localhost:3000/tickets', buyData);
+            ctx.commit('setTickets', tickets.data);
+            localStorage.setItem("tickets", JSON.stringify(tickets.data));
+
+        },
+
+        getTickets(ctx) {
+            let tickets = localStorage.getItem("tickets");
+            ctx.commit('setTickets', JSON.parse(tickets));
+
+
+        },
+
+        async getEvent(ctx) {
+            let events = await axios.get('http://localhost:3000/events');
+            ctx.commit('setEvents', events.data);
+
+        }
     }
-  },
-  actions: {
-/*    async buy(ctx, buyTicket) {
-      let tickets = await axios.get('http://localhost:3000/tickets', buyTicket);
-      ctx.commit('setTicket', tickets.data);
-    }, */
-    async getEvent(ctx) {
-      let events = await axios.get('http://localhost:3000/events');
-      ctx.commit('setEvents', events.data);
-    } 
-  }
 })
