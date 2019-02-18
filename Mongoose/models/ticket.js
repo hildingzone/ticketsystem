@@ -6,7 +6,7 @@ let ticketSchema = new Schema({
 
     event: Object,
     code: String,
-    used: { type: Boolean, default: false },
+    used: { type: Boolean, default: false }
 });
 
 // A model based on the schema

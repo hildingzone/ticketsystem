@@ -22,8 +22,7 @@ let events = require('./routes/events');
 let verify = require('./routes/verify');
 
 app.route('/tickets')
-    .post(tickets.post)
-    .get(tickets.get);
+    .post(tickets.post);
 
 app.route('/events')
     .post(events.post)

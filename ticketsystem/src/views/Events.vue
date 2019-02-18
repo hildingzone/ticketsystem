@@ -6,7 +6,6 @@
         <section class="content">
         <event v-for="event in events" :key="event.id" :event="event" />
 
-hej
 
         </section>
         <pager :activeStep="activeStep"/>

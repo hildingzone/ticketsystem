@@ -2,6 +2,7 @@
 
 //Models
 let Ticket = require('../models/ticket');
+let Event = require('../models/event');
 
 module.exports.post = async(req, res) => {
     console.log(req.body);
