@@ -22,8 +22,8 @@ export default new Vuex.Store({
         }
     },
     actions: {
-        async buy(ctx, buyData) {
-            let tickets = await axios.post('http://localhost:3000/tickets', buyData);
+        async buy(ctx, buyTicket) {
+            let tickets = await axios.post('http://localhost:3000/tickets', buyTicket);
             ctx.commit('setTickets', tickets.data);
             localStorage.setItem("tickets", JSON.stringify(tickets.data));
 
