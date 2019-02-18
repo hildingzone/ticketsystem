@@ -4,7 +4,7 @@
         <section class="info">
             <h2>{{event.name}}</h2>
                         <section class="location">{{event.where.location}}</section>
-                                    <button class="buybutton">Buy tickets</button>
+                                    <button class="buybutton"  @click="selectEvent(event)">Buy tickets</button>
 
             <section class="date">{{event.when.date}} </section>
 
@@ -18,6 +18,13 @@ export default {
     name: 'event',
     props: ['event'],
 
+methods: {
+    selectEvent(event){
+        console.log(event);
+        this.$store.commit("selectEvent", event);
+        this.$router.push("/buy");
+    }
+}
     
 }
 </script>
@@ -70,6 +77,7 @@ border: 1px solid #f56b9a;
 font-family: 'Sansita', sans-serif;
 padding: 0px 10px 5px 10px;
 color: #fff;
+cursor: pointer;
 
 
 }

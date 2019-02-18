@@ -2,28 +2,28 @@
   <article class="ticket">
     <section class="what">
         <p class="what">What</p>
-        <h1>{{ticket.name}}</h1>
+        <h1>{{ticket.event.name}}</h1>
     </section>
     <section class="where">
         <p class="where">Where</p>
-        <h3>{{ticket.where.location}}</h3>
-        <p>{{ticket.where.adress}}</p>
+        <h3>{{ticket.event.where.location}}</h3>
+        <p>{{ticket.event.where.adress}}</p>
     </section>
     <section class="when">
         <p class="when">When</p>
-        <h3>{{ticket.when.date}}</h3>
+        <h3>{{ticket.event.when.date}}</h3>
     </section>
     <section class="from">
         <p class="from">From</p>
-        <h3>{{ticket.when.start}}</h3>
+        <h3>{{ticket.event.when.start}}</h3>
     </section>
     <section class="to">
         <p class="to">To</p>
-        <h3>{{ticket.when.to}}</h3>
+        <h3>{{ticket.event.when.to}}</h3>
     </section>
     <section class="info">
         <p class="info">Info</p>
-        <p>{{ticket.info}}</p>
+        <p>{{ticket.event.info}}</p>
     </section>
     <section class="code">
         <h1 class="barcode">{{ ticket.code }}</h1>

@@ -23,7 +23,7 @@
 <!-- -->
 <script>
 export default {
-  name: 'buyTicket',
+  name: 'event',
   props: ['ticket'],
     computed: {
       event () {

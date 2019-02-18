@@ -4,9 +4,14 @@ let Schema = mongoose.Schema;
 
 // Create schema
 let ticketSchema = new Schema({
+
+    event: Object,
+    used: { type: Boolean, default: false },
+
     code: {
         type: String,
-    },
+    }
+    /*
     name: {
         type: String,
     },
@@ -23,7 +28,7 @@ let ticketSchema = new Schema({
         end: {
             type: String,
         },
-    }, 
+    },
     where: {
         location: {
             type: String,
@@ -32,7 +37,7 @@ let ticketSchema = new Schema({
             type: String,
         }
     },
-    info: String,
+    info: String, */
 });
 
 // A model based on the schema
