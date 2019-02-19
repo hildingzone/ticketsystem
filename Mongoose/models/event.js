@@ -30,6 +30,14 @@ let eventSchema = new Schema({
             type: String,
         }
     },
+    tickets: {
+        available: {
+            type: Number,
+        },
+        sold: {
+            type: Number
+        }
+    },
     info: String,
 });
 
