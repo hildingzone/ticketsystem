@@ -1,5 +1,5 @@
 //Models
-let Ticket = require('../models/ticket');
+let Ticket = require('../models/event');
 
 module.exports.get = async (req, res) => {
 

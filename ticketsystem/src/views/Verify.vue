@@ -12,7 +12,7 @@
                 <h1 v-if="verified.verifiedData">Aint valid bro</h1>
             </section>
         </section>
-        <section>
+        <section class="buttonBar">
             <input type="text" name="code" :value="code.toUpperCase()" @input="code = $event.target.value.toUpperCase()" :maxlength="codeLength" />
             <a href="#" class="verify" @click="verifyTicket ()">Verify ticket</a>
         </section>
@@ -42,7 +42,6 @@ export default {
 
 <style lang="scss">
 @import '../scss/_variables';
-
 #verify {
     background: #F39440;
     display: flex;
@@ -54,21 +53,25 @@ export default {
         text-transform: uppercase;
         color: black;
     }
-    input {
-        height: 2.5rem;
-        padding: .5rem;
-        font-size: 1.5rem;
-        text-align: center;
-        background: none;
-        border: none;
-    }
-    .verify {
-        display: grid;
-        justify-content: center;
-        background: #231F42;
-        border-radius: 0px 0px 3px 3px;
-        text-decoration: none;
-        height: 1rem;
+    .buttonBar {
+
+        input {
+            height: 2.5rem;
+            padding: .5rem;
+            font-size: 1.5rem;
+            text-align: center;
+            background: none;
+            border: solid 3px #231F42;
+        }
+        .verify {
+            @extend %center;
+            background: #231F42;
+            border-radius: 0px 0px 3px 3px;
+            text-decoration: none;
+            height: 5rem;
+            font-weight: 800;
+            font-size: 1.5rem;
+        }
     }
 }
 
