@@ -1,7 +1,8 @@
 <template>
   <main id="admin">
+    <img src="../assets/small-logo.png" class="logo" alt="logo">
     <section class="container">
-      <img src="../assets/small-logo.png">
+      <section class="events">
       <table cellspacing="0">
         <thead>
           <tr>
@@ -20,19 +21,21 @@
           </tr>
         </tbody>
       </table>
-      <aside class="form">
-        <h1>Add Event</h1>
-        <input type="text" placeholder="event name" v-model="name">
-        <input type="text" placeholder="event location" v-model="where.location">
-        <input type="text" placeholder="event adress" v-model="where.adress">
-        <input type="text" placeholder="event start time" v-model="when.date">
-        <input type="text" placeholder="event end time" v-model="when.start">
-        <input type="text" placeholder="event date" v-model="when.end">
-        <input type="number" placeholder="event price" v-model="price">
-        <input type="number" placeholder="event tickets available" v-model="tickets.available">
-        <input type="number" placeholder="event tickets sold" v-model="tickets.sold">
-        <a href="#" class="btn" @click="createEvent">Create Event!</a>
-      </aside>
+      </section>
+       <section>
+         <h1 class="addEvent">Add Event</h1>
+        <side class="form">          
+          <input type="text" placeholder="event name" v-model="name">
+          <input type="text" placeholder="event location" v-model="where.location">
+          <input type="text" placeholder="event adress" v-model="where.adress">
+          <input type="text" placeholder="event start time" v-model="when.date">
+          <input type="text" placeholder="event end time" v-model="when.start">
+          <input type="text" placeholder="event date" v-model="when.end">
+          <input type="number" placeholder="event price" v-model="price">
+          <input type="number" placeholder="event tickets available" v-model="tickets.available">
+          <a href="#" class="btn" @click="createEvent">Create Event!</a>
+        </side>
+      </section>
     </section>
   </main>
 </template>
@@ -79,38 +82,42 @@ export default {
 <style lang="scss">
 @import '../scss/_variables';
 
+$baseline: 2.5rem;
+
 #admin {
-  display: flex;
-  justify-content: center;
+  @extend %center;
 
   .logo {
     position: fixed;
-    margin: 1rem;
-    width: 2rem;
-    left: 0;
+    width: 4rem;
+    left: 2rem;
+    top:2rem;
   }
   
   .container {
-    display: grid;
-    grid-template-columns: 1fr 4fr;
+  /*  display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 1rem; */
     max-width: 1000px;
-    width:100%; 
-
-    table {
-      background: rgba($color: #000000, $alpha: 1.0);
+    width:100%;
+    
+    .events {
+      background: rgba($color: #000, $alpha: .4);
+      border-radius: 3px;
       padding: 1rem;
-      display: grid;
-      justify-content: space-evenly;
+      
+    table {
+      width: 100%;
 
       thead {
-        
-        tr {
 
+        tr {
+          color: #F56B9A;
+          text-transform: uppercase;
           th {
-            color: #F56B9A;
-            text-align: left;
             border-bottom: 1px solid #fff;
             padding: 0.5rem 0;
+
           }
         }
       }
@@ -122,27 +129,51 @@ export default {
          td {
            color: rgba($color: #fff, $alpha: 0.8);
            padding: 1rem 0;
-         }
+           font-size: .9rem;
+           
+           &:first-child {
+              font-weight: 700;
+              color: white;
+              }
+           }
          &:nth-child(2n) {
            background:rgba($color: #fff, $alpha: .05);
          }
       }
     }
-    .form {
-      display: grid;
-      grid-area: form;
-      background: rgba($color: #000000, $alpha: 1.0);
-      padding: 1rem;
+  }
+  .form {
+    display: grid;
+    background: rgba($color: #000, $alpha: .4);
+    padding: 1rem;
+    grid-gap: .5rem;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: $baseline $baseline $baseline $baseline $baseline $baseline;
+    grid-template-areas: 
+    "name name"
+    "location location"
+    "date date"
+    "start end"
+    "price ."
+    "btn btn";
 
-      input {
-        width: 100%;
-        background: none;
-        border: 1px solid rgba($color: #fff, $alpha: 0.8);
-        border-radius: 3px;
-        padding: .25rem;
-        font-size: 1.2rem;
-        color: white;
-        margin: 0 0 1rem;
+    input {
+      background: none;
+      border: 1px solid rgba($color: #fff, $alpha: 0.4);
+      border-radius: 3px;
+      padding: .25rem;
+      font-size: 1.2rem;
+      color: white;
+
+      &.name {grid-area: name}
+      &.location {grid-area: location}
+      &.adress {grid-area: date}
+      &.start {grid-area: start}
+      &.end {grid-area: end}
+      &.price {grid-area: price}
+      &.available {grid-area: available}
+      &.addEvent {grid-area: addEvent}
+
       }
     }
   }
