@@ -34,6 +34,11 @@ export default new Router({
       path: '/admin',
       name: 'admin',
       component: () => import( './views/Admin.vue')
+    },
+    {
+      path: '/verify',
+      name: 'verify',
+      component: () => import( './views/Verify.vue')
     }
   ]
 })
