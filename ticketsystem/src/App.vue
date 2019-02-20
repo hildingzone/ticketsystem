@@ -5,7 +5,6 @@
       <router-link to="/events">Events</router-link> |
       <router-link to="/buy">Buy</router-link> |
       <router-link to="/tickets">Tickets</router-link> |
-      <router-link to="/staff">Staff</router-link> |
       <router-link to="/admin">Admin</router-link> |
       <router-link to="/verify">Verify</router-link>
     </div>
