@@ -36,7 +36,6 @@
 
     </section>
         </section>
-        <pager :activeStep="activeStep"/>
     </main>
 </template>
 
@@ -56,7 +55,7 @@ export default {
 
       name: "hej",
       where: {
-        location: "",
+        location: "gbg",
         adress: "",
       },
       when: {
@@ -68,6 +67,7 @@ export default {
       }
     }
   },
+  
 
   methods: {
     async createEvent(){

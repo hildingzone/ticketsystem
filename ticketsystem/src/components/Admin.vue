@@ -16,16 +16,8 @@
 
 <script>
 export default {
-    name: 'events',
+    name: 'admin',
     props: ['event'],
-
-methods: {
-    selectEvent(event){
-        console.log(event);
-        this.$store.commit("selectEvent", event);
-        this.$router.push("/events");
-    }
-}
     
 }
 </script>
@@ -73,6 +65,7 @@ color: #f56b9a;
 font-size: 15px;
 font-family: 'Sansita', sans-serif;
 background: black;
+margin-bottom: 10px;
 
 }
 

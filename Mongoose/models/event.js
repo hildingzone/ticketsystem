@@ -2,9 +2,6 @@ let mongoose = require('mongoose');
 let Schema = mongoose.Schema;
 
 let eventSchema = new Schema({
-    code: {
-        type: String,
-    },
     name: {
         type: String,
     },
