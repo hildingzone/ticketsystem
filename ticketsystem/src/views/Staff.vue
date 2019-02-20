@@ -6,7 +6,7 @@
 <form action="#">
 <input type="text" name="name" placeholder="TICKET CODE" class="staffTicket"> <br>
 
-<input type="submit" value="Verify ticket">
+<input type="submit" class="btnAdd" value="Verify ticket">
 </form>
 
 
@@ -46,5 +46,23 @@ input[type=submit] {
   width: 20%;
 
 }
+
+.btnAdd {
+width: 30%;
+padding: 1px 0px 6px 0px;
+margin: 8px 0;
+display: inline-block;
+border: none;
+border-radius: 4px;
+-webkit-box-sizing: border-box;
+box-sizing: border-box;
+color: #fff;
+font-size: 21px;
+font-family: 'Sansita', sans-serif;
+background: #f56b9a;
+text-decoration: none;
+cursor: pointer;
+}
+
 
 </style>

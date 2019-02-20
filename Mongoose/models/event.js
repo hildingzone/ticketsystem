@@ -1,12 +1,12 @@
 let mongoose = require('mongoose');
 let Schema = mongoose.Schema;
 
-let eventSchema = new Schema({      
+let eventSchema = new Schema({
     code: {
         type: String,
     },
     name: {
-        type: String,   
+        type: String,
     },
     price: {
         type: Number,
@@ -21,7 +21,7 @@ let eventSchema = new Schema({
         end: {
             type: String,
         },
-    }, 
+    },
     where: {
         location: {
             type: String,
@@ -29,8 +29,7 @@ let eventSchema = new Schema({
         adress: {
             type: String,
         }
-    },
-    info: String,
+    }
 });
 
 let Event = mongoose.model('event', eventSchema);

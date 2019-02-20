@@ -19,6 +19,9 @@ export default new Vuex.Store({
         },
         setEvents(state, events) {
             state.events = events;
+        },
+        setVerifyData(state, data) {
+            state.verifyData = data;
         }
     },
     actions: {
@@ -40,6 +43,10 @@ export default new Vuex.Store({
             let events = await axios.get('http://localhost:3000/events');
             ctx.commit('setEvents', events.data);
 
+        },
+        async verifyTicket(ctx, code) {
+            let verification = await axios.get(`http://localhost:3000/staff/${code}`);
+            ctx.commit('setVerifyData', verification.data);
         }
     }
 })

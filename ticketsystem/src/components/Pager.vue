@@ -1,7 +1,6 @@
 <template>
     <footer class="pager">
         <ul>
-            Go back
         </ul>
     </footer>
 </template>
