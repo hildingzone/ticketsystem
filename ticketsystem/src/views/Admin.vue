@@ -5,12 +5,8 @@
         </header>
 
 
-
-
-
         
         <section class="content">
-
 
 
         <event v-for="event in events" :key="event.id" :event="event" />
@@ -22,7 +18,7 @@
 
 <input type="text" name="name" placeholder="Name" class="addEvent" v-model="newEvent.name"> <br>
 <input type="text" name="where" placeholder="Where" class="addEvent" v-model="newEvent.where.location"> <br>
-<input type="text" name="where" placeholder="Adress" class="addEvent" v-model="newEvent.where.adress"> <br>
+<input type="text" name="where" placeholder="Adres" class="addEvent" v-model="newEvent.where.adress"> <br>
 <input type="text" name="date" placeholder="Date" class="addEvent" v-model="newEvent.when.date"> <br>
 <input type="text" name="from" placeholder="From time" class="addEvent" v-model="newEvent.when.start"> <br>
 <input type="text" name="to" placeholder="To time" class="addEvent" v-model="newEvent.when.end"> <br>
