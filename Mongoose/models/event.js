@@ -17,7 +17,7 @@ let eventSchema = new Schema({
         available: Number,
         sold: Number
     },
-    info: String,
+    spot: String,
 });
 
 let Event = mongoose.model('event', eventSchema);

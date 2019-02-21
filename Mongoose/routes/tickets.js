@@ -21,7 +21,7 @@ module.exports.post = async(req, res) => {
             }
             tickets.push(ticket);
         }
-        
+
         // Posts it into the MongoDB
         let resp = await Ticket.create(tickets);
         res.status(200).send(resp);

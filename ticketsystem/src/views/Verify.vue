@@ -61,10 +61,14 @@ export default {
         border: solid 2px white;
         border-radius: 7px;
         color: #f56b9a;
+        min-width: 35vw;
+        max-width: 35vw;
+
         }
         .btnVerify {
-        width: 30%;
-        padding: 1px 0px 6px 0px;
+        min-width: 35vw;
+        max-width: 35vw;
+        padding: 13px 0px 17px 0px;
         margin: 8px 0;
         display: inline-block;
         border: none;

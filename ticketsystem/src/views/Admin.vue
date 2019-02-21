@@ -1,6 +1,5 @@
 <template>
   <main id="admin">
-    <img src="../assets/small-logo.png" class="logo" alt="logo">
     <section class="container">
       <section class="events">
       <table cellspacing="0">
@@ -8,16 +7,16 @@
           <tr>
             <th>Name</th>
             <th>Where</th>
-            <th>Ticket available</th>
-            <th>Ticket sold</th>
+            <th>Date</th>
+            <th>Time</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody> 
           <tr v-for="event in events" :key="event._id" :event="event">
             <td>{{event.name}}</td>
-            <td>{{event.where}}</td>
-            <td>{{event.tickets}}</td>
-            <td>{{event.tickets}}</td>
+            <td>{{event.where.location}}, {{event.where.adress}} </td>
+            <td>{{event.when.date}}</td>
+            <td>{{event.when.start}} - {{event.when.end}}</td>
           </tr>
         </tbody>
       </table>
@@ -25,15 +24,15 @@
        <section>
          <h1 class="addEvent">Add Event</h1>
         <side class="form">          
-          <input type="text" placeholder="name" v-model="newEvent.name">
-          <input type="text" placeholder="location" v-model="newEvent.where.location">
-          <input type="text" placeholder="adress" v-model="newEvent.where.adress">
-          <input type="text" placeholder="start time" v-model="newEvent.when.date">
-          <input type="text" placeholder="end time" v-model="newEvent.when.start">
-          <input type="text" placeholder="date" v-model="newEvent.when.end">
-          <input type="number" placeholder="price" v-model="newEvent.price">
-          <input type="number" placeholder="tickets available" v-model="newEvent.tickets.available">
-          <a href="#" class="btn" @click="createEvent">Create Event!</a>
+          <input type="text" placeholder="Name" v-model="newEvent.name">
+          <input type="text" placeholder="Location" v-model="newEvent.where.location">
+          <input type="text" placeholder="Adres" v-model="newEvent.where.adress">
+          <input type="text" placeholder="Start time" v-model="newEvent.when.date">
+          <input type="text" placeholder="End time" v-model="newEvent.when.start">
+          <input type="text" placeholder="Date" v-model="newEvent.when.end">
+          <input type="number" placeholder="Price" v-model="newEvent.price">
+          <input type="number" placeholder="Tickets available" v-model="newEvent.tickets.available">
+          <a href="#" class="btnAddEvent" @click="createEvent">Add event!</a>
         </side>
       </section>
     </section>
@@ -41,7 +40,9 @@
 </template>
 
 <script>
+
 export default { 
+  
   name: 'admin',
     beforeMount() {
     this.$store.dispatch('getEvent');
@@ -50,9 +51,9 @@ export default {
     return {
       newEvent: {
         code: '',
-        name: "hej",
+        name: "",
         where: {
-          location: "gbg",
+          location: "",
           adress: "",
         },
         when: {
@@ -74,9 +75,6 @@ export default {
       this.$store.dispatch("getEvent");
     }
   },
-  components: {
-		event	
-  },
   computed: {
     events() {
       return this.$store.state.events;
@@ -86,12 +84,9 @@ export default {
 </script>
 <style lang="scss">
 @import '../scss/_variables';
-
 $baseline: 2.5rem;
-
 #admin {
   @extend %center;
-
   .logo {
     position: fixed;
     width: 4rem;
@@ -113,24 +108,19 @@ $baseline: 2.5rem;
       
     table {
       width: 100%;
-
       thead {
-
         tr {
           color: #F56B9A;
           text-transform: uppercase;
           th {
             border-bottom: 1px solid #fff;
             padding: 0.5rem 0;
-
           }
         }
       }
     }
     tbody {
-
       tr {
-
          td {
            color: rgba($color: #fff, $alpha: 0.8);
            padding: 1rem 0;
@@ -148,12 +138,13 @@ $baseline: 2.5rem;
     }
   }
   .form {
+   
     display: grid;
     background: rgba($color: #000, $alpha: .4);
     padding: 1rem;
     grid-gap: .5rem;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: $baseline $baseline $baseline $baseline $baseline $baseline;
+    grid-template-rows: $baseline $baseline $baseline $baseline;
     grid-template-areas: 
     "name name"
     "location location"
@@ -163,13 +154,14 @@ $baseline: 2.5rem;
     "btn btn";
 
     input {
+          max-width: 42vw;
+      font-family: 'Sansita', sans-serif;
       background: none;
       border: 1px solid rgba($color: #fff, $alpha: 0.4);
       border-radius: 3px;
       padding: .25rem;
       font-size: 1.2rem;
       color: white;
-
       &.name {grid-area: name}
       &.location {grid-area: location}
       &.adress {grid-area: date}
@@ -178,11 +170,30 @@ $baseline: 2.5rem;
       &.price {grid-area: price}
       &.available {grid-area: available}
       &.addEvent {grid-area: addEvent}
-
       }
     }
   }
+  .btnAddEvent {
+
+        width: 202%;
+        padding: 12px 0px 16px 0px;
+        margin: 4px 0;
+        margin-top: 1rem;
+        display: inline-block;
+        border: none;
+        border-radius: 4px;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        color: #fff;
+        font-size: 21px;
+        font-family: 'Sansita', sans-serif;
+        background: #f56b9a;
+        text-decoration: none;
+        cursor: pointer;
+
+  }
+  .btnAddEvent:hover {
+    background-color: rgb(128, 27, 179);
+  }
 }
-
 </style>
-

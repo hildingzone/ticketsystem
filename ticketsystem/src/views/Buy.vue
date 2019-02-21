@@ -10,7 +10,7 @@
         <article class="price">{{ event.price * amount }} sek</article> <br>
 
         <section class="counter">
-          <article class="decrease" @click=" amount-- ">
+          <article class="decrease" @click=" amount--" :minlength="codeLength">
             -
           </article>
           <article class="num-tickets">{{ amount }}</article>
@@ -35,7 +35,8 @@ export default {
   data(){
     return {
       activeStep: 2,
-      amount: 1
+      amount: 1,
+      codeLength: 1 
     }
   },
   computed: {
@@ -47,9 +48,7 @@ export default {
     buy(){
       this.$store.dispatch('buy', { event: this.event._id, amount: this.amount });
       this.$router.push('/tickets');
-    
-    },
-    
+    }    
   }
 }
 </script>
