@@ -13,10 +13,6 @@ let eventSchema = new Schema({
         location: String,
         adress: String,
     },
-    tickets: {
-        available: Number,
-        sold: Number
-    },
     spot: String,
 });
 

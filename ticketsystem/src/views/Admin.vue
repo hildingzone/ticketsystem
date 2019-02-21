@@ -26,12 +26,12 @@
         <side class="form">          
           <input type="text" placeholder="Name" v-model="newEvent.name">
           <input type="text" placeholder="Location" v-model="newEvent.where.location">
-          <input type="text" placeholder="Adres" v-model="newEvent.where.adress">
-          <input type="text" placeholder="Start time" v-model="newEvent.when.date">
-          <input type="text" placeholder="End time" v-model="newEvent.when.start">
-          <input type="text" placeholder="Date" v-model="newEvent.when.end">
+          <input type="text" placeholder="Address" v-model="newEvent.where.adress">
+          <input type="text" placeholder="Date" v-model="newEvent.when.date">
+          <input type="text" placeholder="Start time" v-model="newEvent.when.start">
+          <input type="text" placeholder="End time" v-model="newEvent.when.end">
           <input type="number" placeholder="Price" v-model="newEvent.price">
-          <input type="number" placeholder="Tickets available" v-model="newEvent.tickets.available">
+          <input type="text" placeholder="Type of spot" v-model="newEvent.spot">
           <a href="#" class="btnAddEvent" @click="createEvent">Add event!</a>
         </side>
       </section>
@@ -62,10 +62,7 @@ export default {
           end: "",
         },
         price: "",
-        tickets: {
-          available: Number,
-          sold: Number,
-        },
+        spot: "",
       }
     }
   },

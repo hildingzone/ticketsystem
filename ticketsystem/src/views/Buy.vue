@@ -7,14 +7,16 @@
         <h1>{{ event.name }}</h1>
         <p class="when">{{ event.when.date }} <br> {{ event.when.start }} - {{ event.when.end }}</p>
         <p class="where">{{event.where.location}}</p>
+        <p class="where">{{event.spot}}</p>
+
         <article class="price">{{ event.price * amount }} sek</article> <br>
 
         <section class="counter">
-          <article class="decrease" @click=" amount--" :minlength="codeLength">
+          <article class="decrease" @click=" amount--" v-show="isShowing" >
             -
           </article>
           <article class="num-tickets">{{ amount }}</article>
-          <article class="increase" @click=" amount++ ">
+          <article class="increase" @click=" amount++ " v-show="isShowing ^= true">
             +
           </article>
         </section>
@@ -36,7 +38,7 @@ export default {
     return {
       activeStep: 2,
       amount: 1,
-      codeLength: 1 
+      isShown: false 
     }
   },
   computed: {
@@ -48,6 +50,13 @@ export default {
     buy(){
       this.$store.dispatch('buy', { event: this.event._id, amount: this.amount });
       this.$router.push('/tickets');
+    },
+    ShowAmount (isShown) {
+      if (amount < 1) {
+        true
+      } else {
+        false
+      }
     }    
   }
 }
@@ -61,20 +70,23 @@ export default {
   .contentBuy {
     @extend %center;
     flex-direction: column;
-    background-color: black;
+    background-color: #13142b;
     width: 50%;
     margin: 0 auto;
     padding: 10px;
+    border: 1px solid white;
+    font-size: 1.3rem;
 
   }
 
   .btnbuy {
     background-color:#F56B9A;
-    padding: 10px;
+    padding: 5px 16px 10px 16px;
     color: white;
     text-decoration: none;
     font-size: 1.2rem;
     margin-top: 20px;
+    border-radius: 5px;
   }
 
   .counter {
@@ -101,6 +113,14 @@ export default {
 
  .num-tickets {
    display: inline-block;
+ }
+
+ @media only screen and (max-width: 400px) {
+    .contentBuy {
+    width: 80%;
+
+ }
+
  }
 
 </style>

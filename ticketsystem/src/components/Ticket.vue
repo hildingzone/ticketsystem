@@ -5,9 +5,9 @@
         <h1>{{ticket.event.name}}</h1>
     </section>
     <section class="where">
-        <p class="where">Where</p>
         <h3>{{ticket.event.where.location}}</h3>
         <p>{{ticket.event.where.adress}}</p>
+
     </section>
     <section class="when">
         <p class="when">When</p>
@@ -22,6 +22,8 @@
         <h3>{{ticket.event.when.end}}</h3>
     </section>
     <section class="code">
+        <p class="spot">{{ticket.event.spot}}</p>
+
         <h1 class="barcode">{{ ticket.code }}</h1>
         <p class="utfcode">#{{ ticket.code }}</p>
     </section>
@@ -44,6 +46,7 @@ export default {
 @import '../scss/_variables';
 $baseline: 18px;
 .ticket {
+    padding-bottom: 15px;
     margin: 1rem auto;
     font-family: 'Sansita', sans-serif;
     max-width: 19rem;
@@ -63,7 +66,7 @@ $baseline: 18px;
     h3 {
         margin: 0;
         font-size: 1rem;
-        color: rgb(255, 255, 255);
+        color:#F56B9A;
     }
     p {
         padding: .25rem 1rem;
@@ -72,54 +75,58 @@ $baseline: 18px;
     }
     .what {
         grid-area: what;
-        border-bottom: 1px dotted rgb(249, 245, 245);
         background: white;
         h1 {
             color: #F56B9A;
             margin: 0;
-            padding: 0 0 0 1rem;
+            padding: 1rem 0 0 1rem;
             font-size: 2rem;
         }
     }
     .where {
         grid-area: where;
-        background:#c2c2c2;
+        background:white;
         border-bottom: 1px dotted rgb(249, 248, 248);
         padding-bottom: 1rem;
+        color: #F56B9A;
+        font-size: 1.4rem;
     }
     .when {
         grid-area: when;
-        background: rgb(121, 121, 121);
+        background:#eaeaea;
         
     }
     .from {
         grid-area: from;
-        background: rgb(172, 172, 172);
+        background: #eaeaea;
         border-left: 1px dotted white;
         border-right: 1px dotted white;
     }
     .to {
         grid-area: to;
-        background: rgb(121, 121, 121);
+        background: #eaeaea;
         color: black;
     }
-    .info {
-        grid-area: info;
-        background: yellowgreen;
-        border-top: 1px dotted red;
-        border-bottom: 1px dotted red;
-    }
+
     .code {
         grid-area: code;
-        background: rgb(205, 205, 205);
+        background: white;
         @extend %center;
         flex-direction: column;
         justify-content: center;
+        padding-top: 28px;
         .barcode {
             font-family: 'Libre Barcode 128', cursive;
             margin: 1rem 0 0 0;
             padding: 0;
             font-size: 5rem;
+            font-weight: 100;
+            color: black;
+        }
+        .spot {
+            margin: 1px 1px 1px 1px;
+            padding: 0;
+            font-size: 1rem;
             font-weight: 100;
             color: black;
         }
