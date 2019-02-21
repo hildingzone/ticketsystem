@@ -21,10 +21,6 @@
         <p class="to">To</p>
         <h3>{{ticket.event.when.end}}</h3>
     </section>
-    <section class="info">
-        <p class="info">Info</p>
-        <p>{{ticket.event.info}}</p>
-    </section>
     <section class="code">
         <h1 class="barcode">{{ ticket.code }}</h1>
         <p class="utfcode">#{{ ticket.code }}</p>

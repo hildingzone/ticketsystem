@@ -48,6 +48,14 @@ export default new Vuex.Store({
         async verifyTicket (ctx, code) {
             let verified = await axios.get(`http://localhost:3000/verify/${code}`);
             ctx.commit('setVerifiedData', verified.data);
+            // IF code is used, change it to true.
+            if (verified.data.verified) {
+                var usedCode = localStorage.getItem('tickets');
+                usedCode = JSON.parse(usedCode);
+                usedCode[0].used = true;
+                usedCode = JSON.stringify(usedCode);
+                localStorage.setItem('tickets', usedCode);
+            }
         },
         getTickets(ctx) {
             let tickets = localStorage.getItem("tickets");

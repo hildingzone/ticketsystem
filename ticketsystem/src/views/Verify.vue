@@ -4,7 +4,7 @@
             <h1>Staff</h1>
         </section>
         <section class="buttonBar">
-            <input type="text" name="code" :value="code.toUpperCase()" @input="code = $event.target.value.toUpperCase()" :maxlength="codeLength" />
+            <input type="text" name="code" v-on:keyup.enter="verifyTicket()" :value="code.toUpperCase()" @input="code = $event.target.value.toUpperCase()" :maxlength="codeLength" />
             <br><br><a href="#" class="btnVerify" @click="verifyTicket ()">Verify ticket</a>
         </section>
         <section class="content">
@@ -28,6 +28,9 @@ export default {
     methods: {
         verifyTicket () {
             this.$store.dispatch('verifyTicket', this.code);
+        },
+        onEnter: function() {
+            verifyTicket()
         }
     },
     computed: {

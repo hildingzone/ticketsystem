@@ -8,7 +8,9 @@ module.exports.get = async (req, res) => {
     let resp = await Ticket.find({
         code: req.params.code
         })
-        if (resp.length == 1 && !resp[0].used[0]) {
+
+        console.log(resp);
+        if (resp.length == 1 && !resp[0].used) {
             // Ticket is Valid
             res.status(200).send({msg: 'Ticket is Valid, sir!', verified: true})
             await Ticket.findOneAndUpdate({code: req.params.code}, {
