@@ -51,7 +51,8 @@ export default {
       this.$store.dispatch('buy', { event: this.event._id, amount: this.amount });
       this.$router.push('/tickets');
     
-    }
+    },
+    
   }
 }
 </script>

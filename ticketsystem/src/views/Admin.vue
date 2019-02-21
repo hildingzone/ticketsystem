@@ -16,8 +16,6 @@
         <event v-for="event in events" :key="event.id" :event="event" />
 
 
-
-
     <section class="addEvent">
       <h2>Add Event</h2>
 
@@ -72,8 +70,8 @@ export default {
   methods: {
     async createEvent(){
 
-     let resp = await this.$http.post("http://localhost3000/events", this.newEvent);
-     console.log(resp);
+    this.$store.dispatch('createEvent', this.newEvent);
+
 
 // Get events
 this.$store.dispatch("getEvent");

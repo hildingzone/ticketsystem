@@ -30,7 +30,7 @@ export default new Vuex.Store({
 
             try {
 
-                let resp = await axios.post("http://localhost:3000/events", event);
+                await axios.post("http://localhost:3000/events", event);
 
                 ctx.dispatch("getEvent");
 
