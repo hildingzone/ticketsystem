@@ -1,22 +1,22 @@
 //Models
 let Ticket = require('../models/ticket');
 
-module.exports.get = async (req, res) => {
+module.exports.get = async(req, res) => {
 
     try {
-    // Verify code
-    let resp = await Ticket.find({
-        code: req.params.code
+        // Verify code
+        let resp = await Ticket.find({
+            code: req.params.code
         })
         if (resp.length == 1 && !resp[0].used[0]) {
             // Ticket is Valid
-            res.status(200).send({msg: 'Ticket is Valid, sir!', verified: true})
-            await Ticket.findOneAndUpdate({code: req.params.code}, {
+            res.status(200).send({ msg: 'Ticket is Valid, sir!', verified: true })
+            await Ticket.findOneAndUpdate({ code: req.params.code }, {
                 used: true
             })
         } else {
             // Ticket is NOT Valid
-            res.status(200).send({msg: 'Tcket aint Valid, bro!', verified: false})
+            res.status(200).send({ msg: 'Ticket aint Valid, bro!', verified: false })
         }
 
     } catch (err) {

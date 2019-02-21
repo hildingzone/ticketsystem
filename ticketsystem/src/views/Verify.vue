@@ -10,8 +10,8 @@
         <section class="content">
             <section class="verified" v-if="verified"><br>
                 <img v-if="verified.verified" src="../assets/Verified.png">
-                <h1 v-if="verified.verified">Valid</h1>
-                <h1 v-if="!verified.verified">Aint valid bro</h1>
+                <h1 v-if="verified.verified">Ticket is valid</h1>
+                <h1 v-if="!verified.verified">Ticket ain't valid, bro</h1>
             </section>
         </section>
     </main>
@@ -40,6 +40,7 @@ export default {
 
 <style lang="scss">
 @import '../scss/_variables';
+
 #verify {
     display: flex;
     flex-direction: column;

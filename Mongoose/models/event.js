@@ -13,11 +13,7 @@ let eventSchema = new Schema({
         location: String,
         adress: String,
     },
-    tickets: {
-        available: Number,
-        sold: Number
-    },
-    info: String,
+    spot: String,
 });
 
 let Event = mongoose.model('event', eventSchema);
