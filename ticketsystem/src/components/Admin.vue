@@ -2,38 +2,22 @@
 
 
 
-<div class="lista">
-
-    <article class="events">
+<div class="container">
 
 
-<table class="container">
-	<tbody>
-		<tr>
-			<td>{{event.name}}</td>
-			<td>{{event.where.location}}</td>
-			<td>{{event.when.date}}</td>
-		</tr>
-			</tbody>
-</table>
+            <h2>{{event.name}}</h2>
+            <section class="location">{{event.where.adress}}</section>
+            <section class="date"> </section><br>
+            <section class="price">{{event.when.date}}</section>
 
-    </article>
 </div>
     
 </template>
 
 <script>
 export default {
-    name: 'events',
+    name: 'admin',
     props: ['event'],
-
-methods: {
-    selectEvent(event){
-        console.log(event);
-        this.$store.commit("selectEvent", event);
-        this.$router.push("/events");
-    }
-}
     
 }
 </script>
@@ -41,71 +25,37 @@ methods: {
 
 <style lang="scss">
 
-.container th h1 {
-    font-weight: bold;
-    text-transform: uppercase;
-	  font-size: 1em;
-  text-align: left;
-  color: #6ceeff;
-  
+.location {
+display: inline-block;
+color: #6bedfe;
+font-size: 20px;
+
 }
+
 
 .container {
-	  text-align: left;
-	  overflow: hidden;
-	  width: 50%;
-	  margin: 0 auto;
-  padding: 17px;
+text-align: left;
+overflow: hidden;
+width: 48%;
+margin: 0 auto;
+padding: 0px 0px 11px 32px;
 background: black;
-
-}
-
-.container td, .container th {
-padding: 1%;
 border-bottom: 1px solid white;
-}
-
-.container td:first-child { color: #F56B9A; }
-
-.lista {
-    background-color: black;
-    width: 50%;
-    margin: 0 auto;
-
 
 }
 
-.date {
-font-size: 20px;
-float: right;
-margin-left: 12px;
-padding-right: 52px;
-
-}
-
-.buybutton {
-float: right;
-background-color: #f56b9a;
-font-size: 20px;
-border: 1px solid #f56b9a;
-font-family: 'Sansita', sans-serif;
-padding: 0px 10px 5px 10px;
-color: #fff;
-cursor: pointer;
-
-
-}
 
 h2 {
     text-transform: uppercase;
     font-size: 20px;
     color: #f56b9a;
+    margin-bottom: -2px;
 }
 
 .addEvent,input[type=number],  select {
 width: 50%;
 padding: 8px 10px;
-margin: 8px 0;
+margin: 18px 0px 0px 0px;
 display: inline-block;
 border: 1px solid #ccc;
 border-radius: 4px;
@@ -115,10 +65,11 @@ color: #f56b9a;
 font-size: 15px;
 font-family: 'Sansita', sans-serif;
 background: black;
+margin-bottom: 10px;
 
 }
 
-input[type=submit] {
+.btnAdd {
 width: 30%;
 padding: 1px 0px 6px 0px;
 margin: 8px 0;
@@ -131,6 +82,8 @@ color: #fff;
 font-size: 21px;
 font-family: 'Sansita', sans-serif;
 background: #f56b9a;
+text-decoration: none;
+cursor: pointer;
 }
 
 

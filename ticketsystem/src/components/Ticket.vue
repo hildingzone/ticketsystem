@@ -29,6 +29,7 @@
         <h1 class="barcode">{{ ticket.code }}</h1>
         <p class="utfcode">#{{ ticket.code }}</p>
     </section>
+
   </article>
 </template>
 
@@ -43,10 +44,12 @@ export default {
 
 <!-- -->
 <style lang="scss">
+ @import url('https://fonts.googleapis.com/css?family=Libre+Barcode+128');
 @import '../scss/_variables';
 $baseline: 18px;
 .ticket {
-    position: absolute;
+    margin: 1rem auto;
+    font-family: 'Sansita', sans-serif;
     max-width: 19rem;
     background: white;
     box-shadow: 0 0 3rem rgba($color: #000000, $alpha: .15);
@@ -54,29 +57,26 @@ $baseline: 18px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-auto-rows: 30px;
-    grid-template-rows: $baseline*5 $baseline*6 $baseline*4 $baseline*5 $baseline*6;
+    grid-template-rows: $baseline*5 $baseline*6 $baseline*4 $baseline*6;
     border-radius: .25rem;
     grid-template-areas: 
     "what what what"
     "where where where"
     "when from to"
-    "info info info"
     "code code code";
-    h2 {
+    h3 {
         margin: 0;
-        font-size: 1.4rem;
-        padding: .125rem 1rem;
-        font-weight: 500;
-        color: white;
+        font-size: 1rem;
+        color: rgb(255, 255, 255);
     }
     p {
         padding: .25rem 1rem;
         margin: 0;
-        color: white;
+        color: black;
     }
     .what {
         grid-area: what;
-        border-bottom: 1px dotted red;
+        border-bottom: 1px dotted rgb(249, 245, 245);
         background: white;
         h1 {
             color: #F56B9A;
@@ -87,22 +87,25 @@ $baseline: 18px;
     }
     .where {
         grid-area: where;
-        background: green;
-        border-bottom: 1px dotted red;
+        background:#c2c2c2;
+        border-bottom: 1px dotted rgb(249, 248, 248);
+        padding-bottom: 1rem;
     }
     .when {
         grid-area: when;
-        background: red;
+        background: rgb(121, 121, 121);
+        
     }
     .from {
         grid-area: from;
-        background: grey;
-        border-left: 1px dotted red;
-        border-right: 1px dotted red;
+        background: rgb(172, 172, 172);
+        border-left: 1px dotted white;
+        border-right: 1px dotted white;
     }
     .to {
         grid-area: to;
-        background: greenyellow;
+        background: rgb(121, 121, 121);
+        color: black;
     }
     .info {
         grid-area: info;
@@ -112,7 +115,7 @@ $baseline: 18px;
     }
     .code {
         grid-area: code;
-        background: blue;
+        background: rgb(205, 205, 205);
         @extend %center;
         flex-direction: column;
         justify-content: center;
@@ -122,9 +125,10 @@ $baseline: 18px;
             padding: 0;
             font-size: 5rem;
             font-weight: 100;
+            color: black;
         }
         .utfcode {
-            margin: -1.5rem 0 0 0;
+            margin: -1.5rem 0 1rem 0;
             padding: 0;
             color: rgba(0, 0, 0, .6);
             letter-spacing: .25rem;

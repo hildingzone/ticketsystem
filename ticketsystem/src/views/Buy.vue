@@ -24,12 +24,12 @@
           <p>No ticket selected.</p>
           <a href="#" class="btn" @click="$router.push('/events')">Go to events</a>
         </section>
-        <pager :activeStep="activeStep"/>
+      
     </main>
 </template>
 
 <script>
-import pager from '@/components/Pager';
+
 export default {
   name: 'buy',
   data(){
@@ -37,9 +37,6 @@ export default {
       activeStep: 2,
       amount: 1
     }
-  },
-  components: {
-    pager
   },
   computed: {
     event(){
@@ -51,7 +48,8 @@ export default {
       this.$store.dispatch('buy', { event: this.event._id, amount: this.amount });
       this.$router.push('/tickets');
     
-    }
+    },
+    
   }
 }
 </script>

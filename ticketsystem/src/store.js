@@ -26,6 +26,16 @@ export default new Vuex.Store({
         }
     },
     actions: {
+
+        async createEvent(ctx, event) {
+            try {
+                await axios.post("http://localhost:3000/events", event);
+                ctx.dispatch("getEvent");
+            } catch (err) {
+                console.err(err.stack);
+            }
+        },
+
         async buy(ctx, buyTicket) {
             let tickets = await axios.post('http://localhost:3000/tickets', buyTicket);
             ctx.commit('setTickets', tickets.data);

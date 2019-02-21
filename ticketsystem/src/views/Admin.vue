@@ -15,9 +15,9 @@
         <tbody>
           <tr v-for="event in events" :key="event._id" :event="event">
             <td>{{event.name}}</td>
-            <td>{{event.where.location}}</td>
-         <!--   <td>{{event.tickets}}</td>
-            <td>{{event.tickets}}</td> -->
+            <td>{{event.where}}</td>
+            <td>{{event.tickets}}</td>
+            <td>{{event.tickets}}</td>
           </tr>
         </tbody>
       </table>
@@ -25,14 +25,14 @@
        <section>
          <h1 class="addEvent">Add Event</h1>
         <side class="form">          
-          <input type="text" placeholder="event name" v-model="name">
-          <input type="text" placeholder="event location" v-model="where.location">
-          <input type="text" placeholder="event adress" v-model="where.adress">
-          <input type="text" placeholder="event start time" v-model="when.date">
-          <input type="text" placeholder="event end time" v-model="when.start">
-          <input type="text" placeholder="event date" v-model="when.end">
-          <input type="number" placeholder="event price" v-model="price">
-          <input type="number" placeholder="event tickets available" v-model="tickets.available">
+          <input type="text" placeholder="name" v-model="newEvent.name">
+          <input type="text" placeholder="location" v-model="newEvent.where.location">
+          <input type="text" placeholder="adress" v-model="newEvent.where.adress">
+          <input type="text" placeholder="start time" v-model="newEvent.when.date">
+          <input type="text" placeholder="end time" v-model="newEvent.when.start">
+          <input type="text" placeholder="date" v-model="newEvent.when.end">
+          <input type="number" placeholder="price" v-model="newEvent.price">
+          <input type="number" placeholder="tickets available" v-model="newEvent.tickets.available">
           <a href="#" class="btn" @click="createEvent">Create Event!</a>
         </side>
       </section>
@@ -46,30 +46,36 @@ export default {
     beforeMount() {
     this.$store.dispatch('getEvent');
   },
-  data () {
+  data() {
     return {
-      name: '',
-      price: Number,
-      where: {
-        location: '',
-        adress: '',
-      },
-      when: {
-        date: '',
-        start: '',
-        end: '',
-      },
-      tickets: {
-        available: Number,
-        sold: Number
-      },
+      newEvent: {
+        code: '',
+        name: "hej",
+        where: {
+          location: "gbg",
+          adress: "",
+        },
+        when: {
+          date: "",
+          start: "",
+          end: "",
+        },
+        price: "",
+        tickets: {
+          available: Number,
+          sold: Number,
+        },
+      }
     }
   },
-  method: {
-    async createEvent () {
-      let resp = await this.$http.post('http://localhost:3000/events', this);
-      this.$store.dispatch('getEvents');
+  methods: {
+    async createEvent(){
+      this.$store.dispatch('createEvent', this.newEvent);
+      this.$store.dispatch("getEvent");
     }
+  },
+  components: {
+		event	
   },
   computed: {
     events() {
@@ -78,7 +84,6 @@ export default {
   }
 }
 </script>
-
 <style lang="scss">
 @import '../scss/_variables';
 
