@@ -3,6 +3,7 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 
+/* Our different routes through out our website */
 export default new Router({
     routes: [{
             path: '/',

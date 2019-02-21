@@ -12,7 +12,7 @@ module.exports.post = async(req, res) => {
         let event = await Event.findById(req.body.event);
         let tickets = [];
 
-        // Loops through the amount payer wants.   
+        // Loops through the amount customer wants.   
         for (i = 0; i < req.body.amount; i++) {
             let ticket = {
                 event: event,

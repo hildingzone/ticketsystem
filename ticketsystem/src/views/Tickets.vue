@@ -4,7 +4,7 @@
   </main>
 </template>
 
-<!-- -->
+<!-- Functions -->
 <script>
 import ticket from '@/components/Ticket.vue'
 export default {
@@ -24,8 +24,3 @@ export default {
   }
 }
 </script>
-
-<!-- -->
-<style lang="scss">
-
-</style>

@@ -1,6 +1,6 @@
 let mongoose = require('mongoose');
 let Schema = mongoose.Schema;
-
+/* How our DB should collect data and also needed in our vue/admin site so we send the correct data */
 let eventSchema = new Schema({
     name: String,
     price: Number,
