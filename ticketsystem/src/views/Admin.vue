@@ -35,7 +35,6 @@
 
 <script>
 import event from '@/components/Admin';
-import pager from '@/components/Pager';
 export default {
   name: 'admin',
     beforeMount() {
