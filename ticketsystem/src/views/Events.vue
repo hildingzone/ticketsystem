@@ -8,7 +8,7 @@
             <th>Name</th>
             <th>Where</th>
             <th>Date</th>
-            <th>Time</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
