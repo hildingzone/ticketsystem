@@ -82,6 +82,9 @@ export default {
             text-decoration: none;
             cursor: pointer;
         }
+    .btnVerify:hover {
+    background-color: rgb(128, 27, 179);
+  }
     }
 }
 </style>
