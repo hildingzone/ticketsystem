@@ -9,9 +9,9 @@
         </section>
         <section class="content">
             <section class="verified" v-if="verified"><br>
-                <img v-if="!verified.verifiedData" src="../assets/Verified.png">
-                <h1 v-if="!verified.verifiedData">Valid</h1>
-                <h1 v-if="verified.verifiedData">Aint valid bro</h1>
+                <img v-if="verified.verified" src="../assets/Verified.png">
+                <h1 v-if="verified.verified">Valid</h1>
+                <h1 v-if="!verified.verified">Aint valid bro</h1>
             </section>
         </section>
     </main>
