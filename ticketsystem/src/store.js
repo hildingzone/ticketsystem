@@ -8,7 +8,8 @@ export default new Vuex.Store({
     state: {
         tickets: [],
         events: [],
-        event: {}
+        event: {},
+        verifiedData: null
     },
     mutations: {
         setTickets(state, tickets) {
@@ -20,20 +21,16 @@ export default new Vuex.Store({
         setEvents(state, events) {
             state.events = events;
         },
-        setVerifyData(state, data) {
-            state.verifyData = data;
+        setVerifiedData(state, data) {
+            state.verifiedData = data;
         }
     },
     actions: {
 
         async createEvent(ctx, event) {
-
             try {
-
                 await axios.post("http://localhost:3000/events", event);
-
                 ctx.dispatch("getEvent");
-
             } catch (err) {
                 console.err(err.stack);
             }
@@ -43,24 +40,18 @@ export default new Vuex.Store({
             let tickets = await axios.post('http://localhost:3000/tickets', buyTicket);
             ctx.commit('setTickets', tickets.data);
             localStorage.setItem("tickets", JSON.stringify(tickets.data));
-
         },
-
-        getTickets(ctx) {
-            let tickets = localStorage.getItem("tickets");
-            ctx.commit('setTickets', JSON.parse(tickets));
-
-
-        },
-
         async getEvent(ctx) {
             let events = await axios.get('http://localhost:3000/events');
             ctx.commit('setEvents', events.data);
-
         },
-        async verifyTicket(ctx, code) {
-            let verification = await axios.get(`http://localhost:3000/staff/${code}`);
-            ctx.commit('setVerifyData', verification.data);
-        }
+        async verifyTicket (ctx, code) {
+            let verified = await axios.get(`http://localhost:3000/verify/${code}`);
+            ctx.commit('setVerifiedData', verified.data);
+        },
+        getTickets(ctx) {
+            let tickets = localStorage.getItem("tickets");
+            ctx.commit('setTickets', JSON.parse(tickets));
+        },
     }
 })

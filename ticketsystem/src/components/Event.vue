@@ -11,12 +11,15 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
     name: 'event',
     props: ['event'],
 
 methods: {
-    selectEvent(event){
+    async selectEvent(event){
+        await axios.post('http://localhost:3000/events');
         this.$store.commit("selectEvent", event);
         this.$router.push("/buy");
     }

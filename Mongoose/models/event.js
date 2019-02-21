@@ -26,7 +26,16 @@ let eventSchema = new Schema({
         adress: {
             type: String,
         }
-    }
+    },
+    tickets: {
+        available: {
+            type: Number,
+        },
+        sold: {
+            type: Number
+        }
+    },
+    info: String,
 });
 
 let Event = mongoose.model('event', eventSchema);

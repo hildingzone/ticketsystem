@@ -8,15 +8,18 @@
 
 
         </section>
-        <pager :activeStep="activeStep"/>
+        
     </main>
 </template>
 
 <script>
 import event from '@/components/Event';
-import pager from '@/components/Pager';
+
 export default {
   name: 'events',
+    beforeMount() {
+    this.$store.dispatch('getEvent');
+  },
   data(){
     return {
       activeStep: 2,
@@ -24,7 +27,6 @@ export default {
     }
   },
   components: {
-    pager,
     event
   },
   computed: {

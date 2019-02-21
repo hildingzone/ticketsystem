@@ -26,14 +26,14 @@ export default new Router({
       component: () => import( './views/Buy.vue')
     },
     {
-      path: '/staff',
-      name: 'staff',
-      component: () => import( './views/Staff.vue')
-    },
-    {
       path: '/admin',
       name: 'admin',
       component: () => import( './views/Admin.vue')
+    },
+    {
+      path: '/verify',
+      name: 'verify',
+      component: () => import( './views/Verify.vue')
     }
   ]
 })
