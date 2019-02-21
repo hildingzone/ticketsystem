@@ -8,7 +8,7 @@
       <p class="where">{{event.spot}}</p>
       <article class="price">{{ event.price * amount }} sek</article> <br>
       <section class="counter">
-        <article class="decrease" @click=" amount--" v-show="!amount == 0" > - </article> <!-- Minus button -->
+        <article class="decrease" @click=" amount--" v-show="amount > 1" > - </article> <!-- Minus button -->
         <article class="num-tickets">{{ amount }}</article>
         <article class="increase" @click=" amount++ " > + </article> <!-- Plus button -->
       </section>
