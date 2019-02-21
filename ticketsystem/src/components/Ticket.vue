@@ -1,3 +1,4 @@
+<!-- This is imported in our tickets Vue -->
 <template>
   <article class="ticket">
     <section class="what">
@@ -7,7 +8,6 @@
     <section class="where">
         <h3>{{ticket.event.where.location}}</h3>
         <p>{{ticket.event.where.adress}}</p>
-
     </section>
     <section class="when">
         <p class="when">When</p>
@@ -23,28 +23,26 @@
     </section>
     <section class="code">
         <p class="spot">{{ticket.event.spot}}</p>
-
         <h1 class="barcode">{{ ticket.code }}</h1>
         <p class="utfcode">#{{ ticket.code }}</p>
     </section>
-
   </article>
 </template>
 
-<!-- -->
+<!-- Functions -->
 <script>
 export default {
   name: 'ticket',
   props: ['ticket']
 }
-
 </script>
 
-<!-- -->
+<!-- Styling -->
 <style lang="scss">
- @import url('https://fonts.googleapis.com/css?family=Libre+Barcode+128');
+@import url('https://fonts.googleapis.com/css?family=Libre+Barcode+128');
 @import '../scss/_variables';
 $baseline: 18px;
+
 .ticket {
     padding-bottom: 15px;
     margin: 1rem auto;
@@ -63,6 +61,7 @@ $baseline: 18px;
     "where where where"
     "when from to"
     "code code code";
+
     h3 {
         margin: 0;
         font-size: 1rem;
@@ -76,6 +75,7 @@ $baseline: 18px;
     .what {
         grid-area: what;
         background: white;
+
         h1 {
             color: #F56B9A;
             margin: 0;
@@ -115,6 +115,7 @@ $baseline: 18px;
         flex-direction: column;
         justify-content: center;
         padding-top: 28px;
+
         .barcode {
             font-family: 'Libre Barcode 128', cursive;
             margin: 1rem 0 0 0;

@@ -3,7 +3,6 @@ let Schema = mongoose.Schema;
 
 // Create schema
 let ticketSchema = new Schema({
-
     event: Object,
     code: String,
     used: { type: Boolean, default: false }

@@ -9,7 +9,6 @@ module.exports.get = async(req, res) => {
     }
 };
 module.exports.post = async(req, res) => {
-
     try {
         //Handle post
         let event = req.body;
@@ -19,7 +18,6 @@ module.exports.post = async(req, res) => {
 
         //Create an instant of models Ticket
         let resp = await Event.create(event);
-        console.log(resp);
 
         //Send it if everything went OK
         res.status(200).send(resp);
@@ -28,7 +26,7 @@ module.exports.post = async(req, res) => {
         resp.status(400).send(err);
     }
 };
-
+/* Creates a specific ticket code which can only be used ONCE */ 
 function uid(len) {
     let chars = 'ABCDEFGHIJKLMNOPQRSTVWXYZ0123456789';
     let code = [];

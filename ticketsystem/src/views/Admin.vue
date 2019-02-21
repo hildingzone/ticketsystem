@@ -11,6 +11,7 @@
             <th>Time</th>
           </tr>
         </thead>
+        <!-- Here we import our Events we have added on our DB -->
         <tbody> 
           <tr v-for="event in events" :key="event._id" :event="event">
             <td>{{event.name}}</td>
@@ -22,8 +23,9 @@
       </table>
       </section>
        <section>
+         <!-- This is for making a new Event and send it to our DB -->
          <h1 class="addEvent">Add Event</h1>
-        <side class="form">          
+        <footer  class="form">          
           <input type="text" placeholder="Name" v-model="newEvent.name">
           <input type="text" placeholder="Location" v-model="newEvent.where.location">
           <input type="text" placeholder="Address" v-model="newEvent.where.adress">
@@ -33,21 +35,21 @@
           <input type="number" placeholder="Price" v-model="newEvent.price">
           <input type="text" placeholder="Type of spot" v-model="newEvent.spot">
           <a href="#" class="btnAddEvent" @click="createEvent">Add event!</a>
-        </side>
+        </footer>
       </section>
     </section>
   </main>
 </template>
 
+<!-- Functions -->
 <script>
-
 export default { 
-  
   name: 'admin',
     beforeMount() {
     this.$store.dispatch('getEvent');
   },
   data() {
+    /* Our schema from our DB */
     return {
       newEvent: {
         code: '',
@@ -66,6 +68,8 @@ export default {
       }
     }
   },
+  /* This runs 2 functions in our store.js: One is getEvent where we get our existing 
+  * Events. Second function it runs is createEvent where it posts upcoming events. */
   methods: {
     async createEvent(){
       this.$store.dispatch('createEvent', this.newEvent);
@@ -79,6 +83,8 @@ export default {
   }
 }
 </script>
+
+<!-- Styling -->
 <style lang="scss">
 @import '../scss/_variables';
 $baseline: 2.5rem;
@@ -90,11 +96,8 @@ $baseline: 2.5rem;
     left: 2rem;
     top:2rem;
   }
-  
+
   .container {
-  /*  display: grid;
-    grid-template-columns: 2fr 1fr;
-    grid-gap: 1rem; */
     max-width: 1000px;
     width:100%;
     
@@ -105,10 +108,12 @@ $baseline: 2.5rem;
       
     table {
       width: 100%;
+
       thead {
         tr {
           color: #F56B9A;
           text-transform: uppercase;
+
           th {
             border-bottom: 1px solid #fff;
             padding: 0.5rem 0;

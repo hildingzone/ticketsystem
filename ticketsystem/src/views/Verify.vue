@@ -16,6 +16,8 @@
         </section>
     </main>
 </template>
+
+<!-- Functions -->
 <script>
 export default {
     name: 'verify',
@@ -28,9 +30,6 @@ export default {
     methods: {
         verifyTicket () {
             this.$store.dispatch('verifyTicket', this.code);
-        },
-        onEnter: function() {
-            verifyTicket()
         }
     },
     computed: {
@@ -41,6 +40,7 @@ export default {
 }
 </script>
 
+<!-- Styling -->
 <style lang="scss">
 @import '../scss/_variables';
 
@@ -52,36 +52,34 @@ export default {
         font-size: 2rem;
     }
     .buttonBar {
-    
         input {
-        height: 2.5rem;
-        padding: .5rem;
-        font-size: 1.5rem;
-        text-align: center;
-        background: black;
-        border: solid 2px white;
-        border-radius: 7px;
-        color: #f56b9a;
-        min-width: 35vw;
-        max-width: 35vw;
-
+            height: 2.5rem;
+            padding: .5rem;
+            font-size: 1.5rem;
+            text-align: center;
+            background: black;
+            border: solid 2px white;
+            border-radius: 7px;
+            color: #f56b9a;
+            min-width: 35vw;
+            max-width: 35vw;
         }
         .btnVerify {
-        min-width: 35vw;
-        max-width: 35vw;
-        padding: 13px 0px 17px 0px;
-        margin: 8px 0;
-        display: inline-block;
-        border: none;
-        border-radius: 4px;
-        -webkit-box-sizing: border-box;
-        box-sizing: border-box;
-        color: #fff;
-        font-size: 21px;
-        font-family: 'Sansita', sans-serif;
-        background: #f56b9a;
-        text-decoration: none;
-        cursor: pointer;
+            min-width: 35vw;
+            max-width: 35vw;
+            padding: 13px 0px 17px 0px;
+            margin: 8px 0;
+            display: inline-block;
+            border: none;
+            border-radius: 4px;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            color: #fff;
+            font-size: 21px;
+            font-family: 'Sansita', sans-serif;
+            background: #f56b9a;
+            text-decoration: none;
+            cursor: pointer;
         }
     }
 }

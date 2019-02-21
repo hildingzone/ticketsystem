@@ -1,33 +1,24 @@
 <template>
-
-    <main id="buy">
-              <p>Choose number of tickets</p>
-
-        <section class="contentBuy" v-if="event">
-        <h1>{{ event.name }}</h1>
-        <p class="when">{{ event.when.date }} <br> {{ event.when.start }} - {{ event.when.end }}</p>
-        <p class="where">{{event.where.location}}</p>
-        <p class="where">{{event.spot}}</p>
-
-        <article class="price">{{ event.price * amount }} sek</article> <br>
-
-        <section class="counter">
-          <article class="decrease" @click=" amount--" v-show="isShowing" >
-            -
-          </article>
-          <article class="num-tickets">{{ amount }}</article>
-          <article class="increase" @click=" amount++ " v-show="isShowing ^= true">
-            +
-          </article>
-        </section>
-        <a href="#" class="btnbuy" @click="buy">Buy tickets</a>
-        </section>
-        <section class="content" v-if="!event">
-          <p>No ticket selected.</p>
-          <a href="#" class="btn" @click="$router.push('/events')">Go to events</a>
-        </section>
-      
-    </main>
+  <main id="buy">
+    <p>Choose number of tickets</p>
+    <section class="contentBuy" v-if="event">
+      <h1>{{ event.name }}</h1>
+      <p class="when">{{ event.when.date }} <br> {{ event.when.start }} - {{ event.when.end }}</p>
+      <p class="where">{{event.where.location}}</p>
+      <p class="where">{{event.spot}}</p>
+      <article class="price">{{ event.price * amount }} sek</article> <br>
+      <section class="counter">
+        <article class="decrease" @click=" amount--" v-show="!amount == 0" > - </article> <!-- Minus button -->
+        <article class="num-tickets">{{ amount }}</article>
+        <article class="increase" @click=" amount++ " > + </article> <!-- Plus button -->
+      </section>
+      <a href="#" class="btnbuy" @click="buy">Buy tickets</a>
+    </section>
+    <section class="content" v-if="!event">
+      <p>No ticket selected.</p>
+      <a href="#" class="btn" @click="$router.push('/events')">Go to events</a>
+    </section>
+  </main>
 </template>
 
 <script>
@@ -38,7 +29,6 @@ export default {
     return {
       activeStep: 2,
       amount: 1,
-      isShown: false 
     }
   },
   computed: {
@@ -47,17 +37,12 @@ export default {
     }
   },
   methods: {
+    /* After our Customer have picked an amount of tickets and payed for them, send them to our
+    * our ticket side where they can watcch their newly bought tickets. */
     buy(){
       this.$store.dispatch('buy', { event: this.event._id, amount: this.amount });
       this.$router.push('/tickets');
-    },
-    ShowAmount (isShown) {
-      if (amount < 1) {
-        true
-      } else {
-        false
-      }
-    }    
+    },    
   }
 }
 </script>
@@ -65,7 +50,6 @@ export default {
 <!-- -->
 <style lang="scss">
 @import '../scss/components';
-
 
   .contentBuy {
     @extend %center;
@@ -76,7 +60,6 @@ export default {
     padding: 10px;
     border: 1px solid white;
     font-size: 1.3rem;
-
   }
 
   .btnbuy {
@@ -95,11 +78,10 @@ export default {
   }
     
  .decrease {
-   display: inline-block;
-       padding: 10px;
+    display: inline-block;
+    padding: 10px;
     color: rgb(245, 87, 87);
     cursor: pointer;
-
  }   
 
   .increase {
@@ -107,8 +89,6 @@ export default {
    padding: 10px;
    color: rgb(98, 255, 119);
   cursor: pointer;
-
-
  }   
 
  .num-tickets {
@@ -118,9 +98,7 @@ export default {
  @media only screen and (max-width: 400px) {
     .contentBuy {
     width: 80%;
-
- }
-
+    } 
  }
 
 </style>
