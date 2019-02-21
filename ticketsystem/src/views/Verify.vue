@@ -11,7 +11,7 @@
             <section class="verified" v-if="verified"><br>
                 <img v-if="verified.verified" src="../assets/Verified.png">
                 <h1 v-if="verified.verified">Ticket is valid</h1>
-                <h1 v-if="!verified.verified">Ticket ain't valid, bro</h1>
+                <h1 v-if="!verified.verified">Ticket ain't valid</h1>
             </section>
         </section>
     </main>
