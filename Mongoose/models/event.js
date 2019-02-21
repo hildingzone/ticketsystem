@@ -2,38 +2,20 @@ let mongoose = require('mongoose');
 let Schema = mongoose.Schema;
 
 let eventSchema = new Schema({
-    name: {
-        type: String,
-    },
-    price: {
-        type: Number,
-    },
+    name: String,
+    price: Number,
     when: {
-        date: {
-            type: String,
-        },
-        start: {
-            type: String,
-        },
-        end: {
-            type: String,
-        },
+        date: String,
+        start: String,
+        end: String,
     },
     where: {
-        location: {
-            type: String,
-        },
-        adress: {
-            type: String,
-        }
+        location: String,
+        adress: String,
     },
     tickets: {
-        available: {
-            type: Number,
-        },
-        sold: {
-            type: Number
-        }
+        available: Number,
+        sold: Number
     },
     info: String,
 });

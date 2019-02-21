@@ -1,20 +1,18 @@
 <template>
     <main id="verify">
         <section>
-            <img src="../assets/verify-logo.png">
-            <h1>Where it's @</h1>
             <h1>Staff</h1>
         </section>
+        <section class="buttonBar">
+            <input type="text" name="code" :value="code.toUpperCase()" @input="code = $event.target.value.toUpperCase()" :maxlength="codeLength" />
+            <br><br><a href="#" class="btnVerify" @click="verifyTicket ()">Verify ticket</a>
+        </section>
         <section class="content">
-            <section class="verified" v-if="verified">
+            <section class="verified" v-if="verified"><br>
                 <img v-if="!verified.verifiedData" src="../assets/Verified.png">
                 <h1 v-if="!verified.verifiedData">Valid</h1>
                 <h1 v-if="verified.verifiedData">Aint valid bro</h1>
             </section>
-        </section>
-        <section class="buttonBar">
-            <input type="text" name="code" :value="code.toUpperCase()" @input="code = $event.target.value.toUpperCase()" :maxlength="codeLength" />
-            <a href="#" class="verify" @click="verifyTicket ()">Verify ticket</a>
         </section>
     </main>
 </template>
@@ -43,37 +41,40 @@ export default {
 <style lang="scss">
 @import '../scss/_variables';
 #verify {
-    background: #F39440;
     display: flex;
     flex-direction: column;
     
     h1 {
-        display: grid;
-        justify-content: center;
-        text-transform: uppercase;
-        color: black;
+        font-size: 2rem;
     }
     .buttonBar {
-
+    
         input {
-            height: 2.5rem;
-            padding: .5rem;
-            font-size: 1.5rem;
-            text-align: center;
-            background: none;
-            border: solid 3px #231F42;
+        height: 2.5rem;
+        padding: .5rem;
+        font-size: 1.5rem;
+        text-align: center;
+        background: black;
+        border: solid 2px white;
+        border-radius: 7px;
+        color: #f56b9a;
         }
-        .verify {
-            @extend %center;
-            background: #231F42;
-            border-radius: 0px 0px 3px 3px;
-            text-decoration: none;
-            height: 5rem;
-            font-weight: 800;
-            font-size: 1.5rem;
+        .btnVerify {
+        width: 30%;
+        padding: 1px 0px 6px 0px;
+        margin: 8px 0;
+        display: inline-block;
+        border: none;
+        border-radius: 4px;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        color: #fff;
+        font-size: 21px;
+        font-family: 'Sansita', sans-serif;
+        background: #f56b9a;
+        text-decoration: none;
+        cursor: pointer;
         }
     }
 }
-
 </style>
-
