@@ -39,7 +39,6 @@ overflow: hidden;
 width: 48%;
 margin: 0 auto;
 padding: 0px 0px 11px 32px;
-background: black;
 border-bottom: 1px solid white;
 
 }

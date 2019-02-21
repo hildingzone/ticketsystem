@@ -1,88 +1,125 @@
 <template>
-    <article class="event">
-        <section class="info">
-            <h2>{{event.name}}</h2>
-            <section class="location">{{event.where.adress}}</section>
-            <button class="buybutton"  @click="selectEvent(event)">Buy tickets</button>
-            <section class="date"> </section><br>
-            <section class="price">{{event.price}} :-</section>
-        </section>
-    </article>
+  <main id="admin">
+    <section class="container">
+      <section class="events">
+      <table cellspacing="0">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Where</th>
+            <th>Time</th>
+            <th>Tickets</th>
+          </tr>
+        </thead>
+        <tbody>
+         <tr v-for="event in events" :key="event._id" :event="event"> 
+            <td>{{event.name}}</td>
+            <td>{{event.where.location}}, {{event.where.adress}} </td>
+            <td>{{event.when.date}}, {{event.when.start}}, {{event.when.end}}</td>
+            <td> <button class="buybutton" @click="selectEvent(event)">Buy tickets</button>
+</td>
+          </tr>
+        </tbody>
+      </table>
+      </section>
+
+    </section>
+  </main>
 </template>
 
 <script>
-export default {
-    name: 'event',
-    props: ['event'],
 
-methods: {
+export default { 
+  name: 'event',
+  methods: {
     selectEvent(event){
         this.$store.commit("selectEvent", event);
         this.$router.push("/buy");
     }
-}
-    
+  },
+
+  computed: {
+    events() {
+      return this.$store.state.events;
+    }
+  }
 }
 </script>
-
-
 <style lang="scss">
+@import '../scss/_variables';
+$baseline: 2.5rem;
+#admin {
+  @extend %center;
+  .logo {
+    position: fixed;
+    width: 4rem;
+    left: 2rem;
+    top:2rem;
+  }
+  
+  .container {
+  /*  display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 1rem; */
+    max-width: 1000px;
+    width:100%;
+    
+    .events {
+      background: rgba($color: #000, $alpha: .4);
+      border-radius: 3px;
+      padding: 1rem;
+      
+    table {
+      width: 100%;
+      thead {
+        tr {
+          color: #F56B9A;
+          text-transform: uppercase;
+          th {
+            border-bottom: 1px solid #fff;
+            padding: 0.5rem 0;
+          }
+        }
+      }
+    }
+    tbody {
+      tr {
+         td {
+           color: rgba($color: #fff, $alpha: 0.8);
+           padding: 1rem 0;
+           font-size: 1rem;
+           
+           &:first-child {
+              font-weight: 700;
+              color: white;
+              }
+           }
+         &:nth-child(2n) {
+           background:rgba($color: #fff, $alpha: .05);
+         }
+      }
+    }
+  
+  
+    }
+  }
+  .buybutton {
+        margin: 4px 0;
+        display: inline-block;
+        border: none;
+        border-radius: 4px;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        color: #fff;
+        font-size: 1rem;
+        font-family: 'Sansita', sans-serif;
+        background: #f56b9a;
+        text-decoration: none;
+        cursor: pointer;
 
-.event {
-
-background-color: black;
-display: inline-block;
-padding: 0px 10px 10px 10px;
-width: 50%;
-border: 1px solid white;
-margin-bottom: 10px;
-text-align: left;
+  }
+  .buybutton:hover {
+    background-color: rgb(128, 27, 179);
+  }
 }
-
-.date {
-font-size: 20px;
-float: right;
-margin-left: 12px;
-padding-right: 52px;
-
-}
-
-.location {
-display: inline-block;
-color: #6bedfe;
-font-size: 20px;
-
-}
-
-
-.price {
-    display: inline-block;
-
-}
-
-.time {
-    display: inline-block;
-
-}
-
-.buybutton {
-float: right;
-background-color: #f56b9a;
-font-size: 20px;
-border: 1px solid #f56b9a;
-font-family: 'Sansita', sans-serif;
-padding: 0px 10px 5px 10px;
-color: #fff;
-cursor: pointer;
-
-
-}
-
-h2 {
-    text-transform: uppercase;
-    font-size: 20px;
-    color: #f56b9a;
-}
-
-
 </style>
