@@ -34,7 +34,7 @@ export default new Vuex.Store({
         /* Creates the newly made Event from our Admin site */
         async createEvent(ctx, event) {
             try {
-                await axios.post("http://localhost:3000/events", event);
+                await axios.post("https://ticketsystem-api.herokuapp.com/events", event);
                 ctx.dispatch("getEvent");
             } catch (err) {
                 console.err(err.stack);
@@ -43,19 +43,19 @@ export default new Vuex.Store({
         /* If our customer bought ticket/s they get them both on their localstore here on website but also 
          * on our DB. So we can always verify their tickets if there would be any problems. */
         async buy(ctx, buyTicket) {
-            let tickets = await axios.post('http://localhost:3000/tickets', buyTicket);
+            let tickets = await axios.post('https://ticketsystem-api.herokuapp.com/tickets', buyTicket);
             ctx.commit('setTickets', tickets.data);
             localStorage.setItem("tickets", JSON.stringify(tickets.data));
         },
         /* Which code we run when we want our events that exist on our DB */
         async getEvent(ctx) {
-            let events = await axios.get('http://localhost:3000/events');
+            let events = await axios.get('https://ticketsystem-api.herokuapp.com/events');
             ctx.commit('setEvents', events.data);
         },
         /* Noone should steal, this is for us to verify our customers tickets. After verified, 
          * it will not be able to be used on their localstorage nor on our DB, it will be used. */
         async verifyTicket(ctx, code) {
-            let verified = await axios.get(`http://localhost:3000/verify/${code}`);
+            let verified = await axios.get(`https://ticketsystem-api.herokuapp.com/verify/${code}`);
             ctx.commit('setVerifiedData', verified.data);
             /* IF code is used, change it to true. */
             if (verified.data.verified) {

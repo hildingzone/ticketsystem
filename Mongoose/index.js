@@ -2,13 +2,14 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const port = process.env.PORT || 3000;
 
 let app = express();
 app.use(express.json());
 app.use(cors());
 
 // Connect to our DB 
-mongoose.connect(`mongodb+srv://PinkSurfer:${process.env.PASSWORD}@pinksurfers-39rah.mongodb.net/test?retryWrites=true`, { useNewUrlParser: true })
+mongoose.connect(process.env.MONGODB_URI)
     .then(() => {
         console.info('Connected.')
     })
@@ -31,6 +32,6 @@ app.route('/events')
 app.route('/verify/:code')
     .get(verify.get)
 
-app.listen(3000, () => {
-    console.info('Server is running: 3000.')
+app.listen(port, () => {
+    console.info(`Server is running: ${port}.`)
 });
